@@ -24,7 +24,10 @@ const Layout = () => {
                     <Link to="/ProfessionalReg">Professional Registration</Link>
                 </li>
                 <li>
-                <Link to="/VehicleReg">Vehicle Registration</Link>
+                    <Link to="/VehicleReg">Vehicle Registration</Link>
+                </li>
+                <li>
+                    <Link to="/SubmitClaim">Submit Claim</Link>
                 </li>
             </ul>
         </nav>

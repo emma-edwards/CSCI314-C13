@@ -12,6 +12,7 @@ import EditMembership from "./Pages/EditMembership";
 import reportWebVitals from './reportWebVitals';
 import ProfessionalReg from "./Pages/ProfessinalReg";
 import VehicleReg from "./Pages/VehicleReg";
+import SubmitClaim from "./Pages/SubmitClaim";
 
 export default function App() {
     return (
@@ -25,6 +26,8 @@ export default function App() {
                     <Route path="EditMembership" element={<EditMembership />} />
                     <Route path="ProfessionalReg" element={<ProfessionalReg />} />
                     <Route path="VehicleReg" element={<VehicleReg />} />
+                    <Route path="SubmitClaim" element={<SubmitClaim />} />
+
 
                 </Route>
             </Routes>
