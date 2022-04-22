@@ -8,7 +8,10 @@ import Home from './Pages/Home';
 import SignIn from './Pages/SignIn';
 import Subscriptions from './Pages/Subscriptions';
 import Pricing from './Pages/Pricing';
+import EditMembership from "./Pages/EditMembership";
 import reportWebVitals from './reportWebVitals';
+import ProfessionalReg from "./Pages/ProfessinalReg";
+import VehicleReg from "./Pages/VehicleReg";
 
 export default function App() {
     return (
@@ -19,6 +22,10 @@ export default function App() {
                     <Route path="SignIn" element={<SignIn />} />
                     <Route path="Subscriptions" element={<Subscriptions />} />
                     <Route path="Pricing" element={<Pricing />} />
+                    <Route path="EditMembership" element={<EditMembership />} />
+                    <Route path="ProfessionalReg" element={<ProfessionalReg />} />
+                    <Route path="VehicleReg" element={<VehicleReg />} />
+
                 </Route>
             </Routes>
 

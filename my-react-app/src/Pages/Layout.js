@@ -17,6 +17,15 @@ const Layout = () => {
                 <li>
                     <Link to="/Pricing">Pricing</Link>
                 </li>
+                <li>
+                    <Link to="/EditMembership">Edit Membership</Link>
+                </li>
+                <li>
+                    <Link to="/ProfessionalReg">Professional Registration</Link>
+                </li>
+                <li>
+                <Link to="/VehicleReg">Vehicle Registration</Link>
+                </li>
             </ul>
         </nav>
 
