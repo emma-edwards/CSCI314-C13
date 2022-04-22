@@ -7,6 +7,7 @@ import Layout from './Pages/Layout';
 import Home from './Pages/Home';
 import SignIn from './Pages/SignIn';
 import Subscriptions from './Pages/Subscriptions';
+import Pricing from './Pages/Pricing';
 import reportWebVitals from './reportWebVitals';
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
                     <Route index element={<Home />} />
                     <Route path="SignIn" element={<SignIn />} />
                     <Route path="Subscriptions" element={<Subscriptions />} />
+                    <Route path="Pricing" element={<Pricing />} />
                 </Route>
             </Routes>
 
