@@ -32,6 +32,9 @@ const Layout = () => {
                 <li>
                     <Link to="/SubmitClaim">Submit Claim</Link>
                 </li>
+                <li>
+                    <Link to="/CalloutLocation">Location</Link>
+                </li>
 
             </ul>
         </nav>
