@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Outlet, Link as RouterLink } from "react-router-dom";
 
 function Copyright(props) {
     return (
@@ -107,6 +108,7 @@ export default function SignUp() {
                                 />
                             </Grid>
                         </Grid>
+                        <RouterLink to="/MemberHome">
                         <Button
                             type="submit"
                             fullWidth
@@ -115,11 +117,12 @@ export default function SignUp() {
                         >
                             Sign Up
                         </Button>
+                        </RouterLink>
                         <Grid container justifyContent="flex-end">
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <RouterLink to="/SignIn" variant="body2">
                                     Already have an account? Sign in
-                                </Link>
+                                </RouterLink>
                             </Grid>
                         </Grid>
                     </Box>
