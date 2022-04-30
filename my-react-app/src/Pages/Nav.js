@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Outlet, Link as RouterLink } from "react-router-dom";
 
-const pages = [['Submit Claim', '/SubmitClaim'], ['Vehicle Registration', '/VehicleReg']];
+const pages = [['Submit Callout', '/SubmitClaim'], ['Vehicle Registration', '/VehicleReg']];
 //const pageRoutes = ['/SubmitClaim', '/VehicleReg'];
 //const numPages = 2;
 const settings = [['Home', '/MemberHome' ], ['Membership', '/EditMembership'], ['Logout', '/']];
@@ -49,7 +49,7 @@ const ResponsiveAppBar = () => {
                         component="div"
                         sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                     >
-                        LOGO
+                        Roadside Assist
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
