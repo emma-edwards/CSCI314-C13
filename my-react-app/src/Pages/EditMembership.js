@@ -7,6 +7,9 @@ import Checkbox from '@mui/material/Checkbox';
 import Button from "@mui/material/Button";
 
 export default function EditMembership() {
+    /*
+    This page's ui is modified using mui library.
+    */
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>

@@ -15,7 +15,9 @@ import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import { Outlet, Link as RouterLink } from "react-router-dom";
-
+    /*
+    This page's ui is modified using mui library.
+    */
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
