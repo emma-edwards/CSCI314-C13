@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Outlet, Link as RouterLink } from "react-router-dom";
 
 function Copyright(props) {
     return (
@@ -81,6 +82,7 @@ export default function SignIn() {
                             control={<Checkbox value="remember" color="primary" />}
                             label="Remember me"
                         />
+                        <RouterLink to="/MemberHome">
                         <Button
                             type="submit"
                             fullWidth
@@ -89,6 +91,7 @@ export default function SignIn() {
                         >
                             Sign In
                         </Button>
+                        </RouterLink>
                         <Grid container>
                             <Grid item xs>
                                 <Link href="#" variant="body2">
@@ -96,9 +99,9 @@ export default function SignIn() {
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <RouterLink to="/SignUp" variant="body2">
                                     {"Don't have an account? Sign Up"}
-                                </Link>
+                                </RouterLink>
                             </Grid>
                         </Grid>
                     </Box>

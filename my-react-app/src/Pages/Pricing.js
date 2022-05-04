@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
+import { Outlet, Link as RouterLink } from "react-router-dom";
 
 function Copyright(props) {
     return (
@@ -30,31 +31,26 @@ function Copyright(props) {
 
 const tiers = [
     {
-        title: 'Free',
+        title: 'Pay-on-demand',
         price: '0',
         description: [
-            '10 users included',
-            '2 GB of storage',
-            'Help center access',
-            'Email support',
+            'Pay per service use',
+            'Prices are calculated and presented up front'
         ],
         buttonText: 'Sign up for free',
         buttonVariant: 'outlined',
     },
     {
-        title: 'Pro',
+        title: 'Subscription',
         subheader: 'Most popular',
-        price: '15',
+        price: '120',
         description: [
-            '20 users included',
-            '10 GB of storage',
-            'Help center access',
-            'Priority email support',
+            'Unlimited callouts with no extra cost'
         ],
-        buttonText: 'Get started',
+        buttonText: 'Sign Up with subscription',
         buttonVariant: 'contained',
-    },
-    {
+    }
+/*    {
         title: 'Enterprise',
         price: '30',
         description: [
@@ -65,10 +61,10 @@ const tiers = [
         ],
         buttonText: 'Contact us',
         buttonVariant: 'outlined',
-    },
+    },*/
 ];
 
-const footers = [
+/*const footers = [
     {
         title: 'Company',
         description: ['Team', 'History', 'Contact us', 'Locations'],
@@ -91,14 +87,14 @@ const footers = [
         title: 'Legal',
         description: ['Privacy policy', 'Terms of use'],
     },
-];
+];*/
 
 function PricingContent() {
     return (
         <React.Fragment>
             <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
             <CssBaseline />
-            <AppBar
+            {/*<AppBar
                 position="static"
                 color="default"
                 elevation={0}
@@ -138,7 +134,7 @@ function PricingContent() {
                         Login
                     </Button>
                 </Toolbar>
-            </AppBar>
+            </AppBar>*/}
             {/* Hero unit */}
             <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
                 <Typography
@@ -150,11 +146,11 @@ function PricingContent() {
                 >
                     Pricing
                 </Typography>
-                <Typography variant="h5" align="center" color="text.secondary" component="p">
+                {/*<Typography variant="h5" align="center" color="text.secondary" component="p">
                     Quickly build an effective pricing table for your potential customers with
                     this layout. It&apos;s built with default MUI components with little
                     customization.
-                </Typography>
+                </Typography>*/}
             </Container>
             {/* End hero unit */}
             <Container maxWidth="md" component="main">
@@ -173,7 +169,7 @@ function PricingContent() {
                                     title={tier.title}
                                     subheader={tier.subheader}
                                     titleTypographyProps={{ align: 'center' }}
-                                    action={tier.title === 'Pro' ? <StarIcon /> : null}
+                                    action={tier.title === 'Subscription' ? <StarIcon /> : null}
                                     subheaderTypographyProps={{
                                         align: 'center',
                                     }}
@@ -197,7 +193,7 @@ function PricingContent() {
                                             ${tier.price}
                                         </Typography>
                                         <Typography variant="h6" color="text.secondary">
-                                            /mo
+                                            /year
                                         </Typography>
                                     </Box>
                                     <ul>
@@ -214,9 +210,11 @@ function PricingContent() {
                                     </ul>
                                 </CardContent>
                                 <CardActions>
-                                    <Button fullWidth variant={tier.buttonVariant}>
-                                        {tier.buttonText}
-                                    </Button>
+                                    <RouterLink to='/MemberHome'>
+                                        <Button fullWidth variant={tier.buttonVariant}>
+                                            {tier.buttonText}
+                                        </Button>
+                                    </RouterLink>
                                 </CardActions>
                             </Card>
                         </Grid>
@@ -224,7 +222,7 @@ function PricingContent() {
                 </Grid>
             </Container>
             {/* Footer */}
-            <Container
+            {/*<Container
                 maxWidth="md"
                 component="footer"
                 sx={{
@@ -252,7 +250,7 @@ function PricingContent() {
                     ))}
                 </Grid>
                 <Copyright sx={{ mt: 5 }} />
-            </Container>
+            </Container>*/}
             {/* End footer */}
         </React.Fragment>
     );
