@@ -2,6 +2,8 @@
   "name": "test",
   "version": "1.0.0",
   "dependencies": {
+    "@googlemaps/react-wrapper": "^1.1.32",
+    "google-maps-react": "^2.0.6",
     "react": "^18.0.0"
   },
   "devDependencies": {
