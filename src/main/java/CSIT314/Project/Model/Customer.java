@@ -20,17 +20,19 @@ public class Customer {
     private String DOB;
     private String email;
     private int phone;
+    private String password;
 
     public Customer() {
     }
 
-    public Customer(Long id, String firstName, String lastName, String DOB, String email, int phone) {
+    public Customer(Long id, String firstName, String lastName, String DOB, String email, int phone, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.DOB = DOB;
         this.email = email;
         this.phone = phone;
+        this.password = password;
     }
 
     public Long getId() {
@@ -81,6 +83,10 @@ public class Customer {
         this.phone = phone;
     }
 
+    public String getPassword(){return password;}
+
+    public void setPassword(String password){this.password = password;}
+
     public void setCustomer (Customer customer) {
         if (customer.firstName != null) {
             setFirstName(customer.firstName);
@@ -94,6 +100,9 @@ public class Customer {
         if (customer.email != null) {
             setEmail(customer.email);
         }
-        setPhone(customer.phone);
+        setPassword(customer.password);
+        if (customer.password != null) {
+            setPassword(customer.password);
+        }
     }
 }
