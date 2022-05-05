@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -7,6 +8,36 @@ import Checkbox from '@mui/material/Checkbox';
 import Button from "@mui/material/Button";
 
 export default function EditMembership() {
+    const[firstName,setFirstName]=useState('')
+    const[lastName,setLastName]=useState('')
+
+    const checkTextInput = (e) => {
+        if (!firstName.trim()) {
+            alert('Please Enter First Name'); 
+            window.location.href = '/EditMembership'
+        }else if (!lastName.trim()) {
+            alert('Please Enter Last Name');
+            window.location.href = '/EditMembership'
+        }else{
+            handleClick(e);
+        }
+    }
+
+    const handleClick=(e)=>{
+        e.preventDefault()
+        const vehicle={firstName, lastName}
+        console.log(vehicle)
+        fetch("http://localhost:8080/vehicle/addVehicle",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(vehicle)
+        }).then(()=>{
+            console.log("Vehicle added")
+            window.location.href = '/MemberHome'
+        })
+    }
+
+
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
@@ -22,6 +53,7 @@ export default function EditMembership() {
                         fullWidth
                         autoComplete="given-name"
                         variant="standard"
+                        onChange={(e)=>setFirstName(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -33,6 +65,7 @@ export default function EditMembership() {
                         fullWidth
                         autoComplete="family-name"
                         variant="standard"
+                        onChange={(e)=>setLastName(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12}>
@@ -104,8 +137,9 @@ export default function EditMembership() {
                         label="Use this address for payment details"
                     />
                 </Grid>
-                <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
-                    Edit Membership
+                <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}
+                onClick={checkTextInput}>
+                    Save Changes
                 </Button>
                 <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
                     Cancel Membership
