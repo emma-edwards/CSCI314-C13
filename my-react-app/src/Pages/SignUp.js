@@ -146,7 +146,7 @@ export default function SignUp() {
                                 />
                             </Grid>
                         </Grid>
-                        <RouterLink to="/Pricing">
+                        {/*<RouterLink to="/Pricing">*/}
                             <Button
                                 type="submit"
                                 fullWidth
@@ -156,7 +156,7 @@ export default function SignUp() {
                             >
                                 Sign Up
                             </Button>
-                        </RouterLink>
+                        {/*</RouterLink>*/}
                         <Grid container justifyContent="flex-end">
                             <Grid item>
                                 <RouterLink to="/SignIn" variant="body2">
