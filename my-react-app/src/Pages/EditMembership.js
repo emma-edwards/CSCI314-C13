@@ -8,15 +8,19 @@ import Checkbox from '@mui/material/Checkbox';
 import Button from "@mui/material/Button";
 
 export default function EditMembership() {
-    const[firstName,setFirstName]=useState('')
-    const[lastName,setLastName]=useState('')
+    const[address1,setAddress1]=useState('')
+    const[address2,setAddress2]=useState('')
+    const[city,setCity]=useState('')
+    const[state,setState]=useState('')
+    const[postalCode,setPostalCode]=useState('')
+    const[country,setCountry]=useState('')
 
     const checkTextInput = (e) => {
-        if (!firstName.trim()) {
-            alert('Please Enter First Name'); 
+        if (!address1.trim()) {
+            alert('Please Enter Address 1'); 
             window.location.href = '/EditMembership'
-        }else if (!lastName.trim()) {
-            alert('Please Enter Last Name');
+        }else if (!address2.trim()) {
+            alert('Please Enter Address 2');
             window.location.href = '/EditMembership'
         }else{
             handleClick(e);
@@ -25,18 +29,17 @@ export default function EditMembership() {
 
     const handleClick=(e)=>{
         e.preventDefault()
-        const vehicle={firstName, lastName}
-        console.log(vehicle)
-        fetch("http://localhost:8080/vehicle/addVehicle",{
+        const membership={address1, address2, city, state, postalCode, country}
+        console.log(membership)
+        fetch("http://localhost:8080/membership/addMembership",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(vehicle)
+            body:JSON.stringify(membership)
         }).then(()=>{
-            console.log("Vehicle added")
+            console.log("Membership added")
             window.location.href = '/MemberHome'
         })
     }
-
 
     return (
         <React.Fragment>
@@ -44,30 +47,6 @@ export default function EditMembership() {
                 Edit membership
             </Typography>
             <Grid container spacing={3}>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="firstName"
-                        name="firstName"
-                        label="First name"
-                        fullWidth
-                        autoComplete="given-name"
-                        variant="standard"
-                        onChange={(e)=>setFirstName(e.target.value)}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="lastName"
-                        name="lastName"
-                        label="Last name"
-                        fullWidth
-                        autoComplete="family-name"
-                        variant="standard"
-                        onChange={(e)=>setLastName(e.target.value)}
-                    />
-                </Grid>
                 <Grid item xs={12}>
                     <TextField
                         required
@@ -77,6 +56,7 @@ export default function EditMembership() {
                         fullWidth
                         autoComplete="shipping address-line1"
                         variant="standard"
+                        onChange={(e)=>setAddress1(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12}>
@@ -87,6 +67,7 @@ export default function EditMembership() {
                         fullWidth
                         autoComplete="shipping address-line2"
                         variant="standard"
+                        onChange={(e)=>setAddress2(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -98,6 +79,7 @@ export default function EditMembership() {
                         fullWidth
                         autoComplete="shipping address-level2"
                         variant="standard"
+                        onChange={(e)=>setCity(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -107,6 +89,7 @@ export default function EditMembership() {
                         label="State/Province/Region"
                         fullWidth
                         variant="standard"
+                        onChange={(e)=>setState(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -118,6 +101,7 @@ export default function EditMembership() {
                         fullWidth
                         autoComplete="shipping postal-code"
                         variant="standard"
+                        onChange={(e)=>setPostalCode(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -129,6 +113,7 @@ export default function EditMembership() {
                         fullWidth
                         autoComplete="shipping country"
                         variant="standard"
+                        onChange={(e)=>setCountry(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12}>
