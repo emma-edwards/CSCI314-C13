@@ -8,6 +8,9 @@ import Checkbox from '@mui/material/Checkbox';
 import Button from "@mui/material/Button";
 
 export default function EditMembership() {
+    /*
+    This page's ui is modified using mui library.
+    */
     const[address1,setAddress1]=useState('')
     const[address2,setAddress2]=useState('')
     const[city,setCity]=useState('')
@@ -17,7 +20,7 @@ export default function EditMembership() {
 
     const checkTextInput = (e) => {
         if (!address1.trim()) {
-            alert('Please Enter Address 1'); 
+            alert('Please Enter Address 1');
             window.location.href = '/EditMembership'
         }else if (!address2.trim()) {
             alert('Please Enter Address 2');

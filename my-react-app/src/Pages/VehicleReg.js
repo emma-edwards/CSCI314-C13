@@ -7,6 +7,9 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Button from "@mui/material/Button";
 
+    /*
+    This page's ui is modified using mui library.
+    */
 export default function VehicleReg() {
     const[plate,setPlate]=useState('')
     const[vehiceMake,setVehicleMake]=useState('')

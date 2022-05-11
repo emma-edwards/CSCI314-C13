@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,6 +14,9 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Outlet, Link as RouterLink } from "react-router-dom";
 
+    /*
+    This page's ui is modified using mui library.
+    */
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -30,10 +32,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignUp() {
-    /*
-    This page's ui is modified using mui library.
-    */
+export default function ProfessionalReg() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -42,43 +41,6 @@ export default function SignUp() {
             password: data.get('password'),
         });
     };
-    const[firstName,setFirstName]=useState('')
-    const[lastName,setLastName]=useState('')
-    const[password,setPassword]=useState('')
-    const[email,setEmail]=useState('')
-
-
-    const checkTextInput = (e) => {
-        if (!firstName.trim()) {
-            alert('Please Enter First Name');
-            window.location.href = '/SignUp'
-        }else if (!lastName.trim()) {
-            alert('Please Enter Last Name');
-            window.location.href = '/SignUp'
-        }else if (!password.trim()) {
-            alert('Please Enter Password');
-            window.location.href = '/SignUp'
-        }else if (!email.trim()) {
-            alert('Please Enter Email');
-            window.location.href = '/SignUp'
-        }else{
-            handleClick(e);
-        }
-    }
-
-    const handleClick=(e)=>{
-        e.preventDefault()
-        const signUp={firstName, lastName, password, email}
-        console.log(signUp)
-        fetch("http://localhost:8080/customer/addCustomer",{
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(signUp)
-        }).then(()=>{
-            console.log("Customer added")
-            window.location.href = '/Pricing'
-        })
-    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -96,9 +58,9 @@ export default function SignUp() {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Sign up
+                        Professional Registration
                     </Typography>
-                    <Box component="form" sx={{ mt: 3 }}>
+                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>
                                 <TextField
@@ -109,8 +71,6 @@ export default function SignUp() {
                                     id="firstName"
                                     label="First Name"
                                     autoFocus
-                                    value={firstName}
-                                    onChange={(e)=>setFirstName(e.target.value)}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -121,8 +81,15 @@ export default function SignUp() {
                                     label="Last Name"
                                     name="lastName"
                                     autoComplete="family-name"
-                                    value={lastName}
-                                    onChange={(e)=>setLastName(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    id="dob"
+                                    label="Date of birth"
+                                    name="dob"
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -133,8 +100,24 @@ export default function SignUp() {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
-                                    value={email}
-                                    onChange={(e)=>setEmail(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    id="phone"
+                                    label="Phone Number"
+                                    name="phone"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    id="yearsWorked"
+                                    label="Years Worked as a professional"
+                                    name="yearsWorked"
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -146,8 +129,6 @@ export default function SignUp() {
                                     type="password"
                                     id="password"
                                     autoComplete="new-password"
-                                    value={password}
-                                    onChange={(e)=>setPassword(e.target.value)}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -157,17 +138,16 @@ export default function SignUp() {
                                 />
                             </Grid>
                         </Grid>
-                        {/*<RouterLink to="/Pricing">*/}
+                        <RouterLink to="/Pricing">
                             <Button
                                 type="submit"
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
-                                onClick={checkTextInput}
                             >
                                 Sign Up
                             </Button>
-                        {/*</RouterLink>*/}
+                        </RouterLink>
                         <Grid container justifyContent="flex-end">
                             <Grid item>
                                 <RouterLink to="/SignIn" variant="body2">
