@@ -16,7 +16,10 @@ import VehicleReg from "./Pages/VehicleReg";
 import SubmitClaim from "./Pages/SubmitClaim";
 import SignUp from "./Pages/SignUp";
 import MemberHome from './Pages/MemberHome';
-import CalloutLocation from "./Pages/CalloutLocation";
+import ProfessionalHome from './Pages/ProfessionalHome';
+import AvJobs from './Pages/AvJobs';
+import CurrentJobs from './Pages/CurrentJobs';
+import PNav from './Pages/PNav';
 
 
 export default function App() {
@@ -38,11 +41,12 @@ export default function App() {
                     <Route path="VehicleReg" element={<VehicleReg />} />
                     <Route path="SubmitClaim" element={<SubmitClaim />} />
                     <Route path="MemberHome" element={<MemberHome />} />
-                    <Route path="SignUp" element={<SignUp />} />
-                    <Route path="CalloutLocation" element={<CalloutLocation />} />
+                </Route>
 
-
-
+                <Route element={<PNav />}>
+                    <Route path="ProfessionalHome" element={<ProfessionalHome />} />
+                    <Route path="AvJobs" element={<AvJobs />} />
+                    <Route path="CurrentJobs" element={<CurrentJobs />} />
                 </Route>
 
             </Routes>
