@@ -1,0 +1,3 @@
+/*
+communicate with a customer so that I could get a better understanding of the mechanical failure
+*/
