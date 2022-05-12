@@ -10,6 +10,7 @@ public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String location;
     private boolean requestStatus;
     private boolean member;
     private double price;
@@ -26,8 +27,9 @@ public class Request {
 
     public Request(){}
 
-    public Request(Long id, boolean requestStatus, boolean member, double price, int availableProfessionals, String professionalNotes, String professionalReviews, int professionalPhone, String professionalEstimatedTime, double professionalPayment, String customerNotes, int customerPhone, String report) {
+    public Request(Long id, String location, boolean requestStatus, boolean member, double price, int availableProfessionals, String professionalNotes, String professionalReviews, int professionalPhone, String professionalEstimatedTime, double professionalPayment, String customerNotes, int customerPhone, String report) {
         this.id = id;
+        this.location = location;
         this.requestStatus = requestStatus;
         this.member = member;
         this.price = price;
@@ -50,6 +52,10 @@ public class Request {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getLocation(){ return location; }
+
+    public void setLocation(String location){ this.location = location; }
 
     public boolean isRequestStatus() {
         return requestStatus;
@@ -156,6 +162,7 @@ public class Request {
     }
 
     public void setRequest(Request request){
+        setLocation(request.location);
         setRequestStatus(request.requestStatus);
         setMember(request.member);
         setPrice(request.price);

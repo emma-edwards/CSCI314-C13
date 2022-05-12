@@ -11,17 +11,23 @@ public class Membership {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String membershipType;
-    private int price;
-    private String paymentMethod;
+    private String address1;
+    private String address2;
+    private String city;
+    private String state;
+    private String postalCode;
+    private String country;
 
     public Membership(){}
 
-    public Membership(Long id, String membershipType, int price, String paymentMethod) {
+    public Membership(Long id, String address1, String address2, String city, String state, String postalCode, String country) {
         this.id = id;
-        this.membershipType = membershipType;
-        this.price = price;
-        this.paymentMethod = paymentMethod;
+        this.address1 = address1;
+        this.address2 = address2;
+        this.city = city;
+        this.state = state;
+        this.postalCode = postalCode;
+        this.country = country;
     }
 
     public Long getId() {
@@ -32,33 +38,60 @@ public class Membership {
         this.id = id;
     }
 
-    public String getMembershipType() {
-        return membershipType;
+    public String getAddress1() {
+        return address1;
     }
 
-    public void setMembershipType(String membershipType) {
-        this.membershipType = membershipType;
+    public void setAddress1(String address1) {
+        this.address1 = address1;
     }
 
-    public int getPrice() {
-        return price;
+    public String getAddress2() {
+        return address2;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setAddress2(String address2) {
+        this.address2 = address2;
     }
 
-    public String getPaymentMethod() {
-        return paymentMethod;
+    public String getCity() {
+        return city;
     }
 
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public void setMembership(Membership membership) {
-        setMembershipType(membership.membershipType);
-        setPrice(membership.price);
-        setPaymentMethod(membership.paymentMethod);
+        setAddress1(membership.address1);
+        setAddress2(membership.address2);
+        setCity(membership.city);
+        setState(membership.state);
+        setPostalCode(membership.postalCode);
+        setCountry(membership.country);
     }
 }
