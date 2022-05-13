@@ -23,9 +23,17 @@ public class CustomerService implements CustomerServiceImpl {
         return customerRepository.findById(id).orElseThrow(() -> new CustomException(id, "Customer"));
     }
 
-    public Customer getCustomerFind(String email){
+    public Customer getCustomerFindEmail(String email){
         if(customerRepository.findByEmail(email).isPresent()) {
             return customerRepository.findByEmail(email).orElseThrow(() -> new CustomException2("Cannot find email"));
+        }else{
+            throw new CustomException2("Incorrect Email or Password");
+        }
+    }
+
+    public Customer getCustomerFindPassword(String password){
+        if(customerRepository.findByPassword(password).isPresent()) {
+            return customerRepository.findByPassword(password).orElseThrow(() -> new CustomException2("Cannot find email"));
         }else{
             throw new CustomException2("Incorrect Email or Password");
         }
