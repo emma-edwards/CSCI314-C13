@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -33,14 +34,39 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
+    const[password,setPassword]=useState('')
+    const[email,setEmail]=useState('')
+
+ 
+    const checkTextInput = (e) => {
+        if (!email.trim()) {
+            alert('Please Enter Email');
+            window.location.href = '/Signin'
+        }else if (!password.trim()) {
+            alert('Please Enter Password');
+            window.location.href = '/SignIn'
+        }else{
+            handleClick(e);
+        }
+    }
+    
+    const handleClick=(e)=>{
+        e.preventDefault()
+        const signIn={email, password}
+        console.log(signIn)
+        fetch(`http://localhost:8080/customer/findCustomer/${email}`)
+        .then(response => {
+            if (!response.ok){
+                alert('Incorrect Email or Password');
+                throw response 
+            }
+                return response.json()
+        })
+        .then(json=>{
+            console.log(json)
+            window.location.href = '/MemberHome'
+        })
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -60,7 +86,7 @@ export default function SignIn() {
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
-                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                    <Box component="form" noValidate sx={{ mt: 1 }}>
                         <TextField
                             margin="normal"
                             required
@@ -70,6 +96,8 @@ export default function SignIn() {
                             name="email"
                             autoComplete="email"
                             autoFocus
+                            onChange={(e)=>setEmail(e.target.value)}
+
                         />
                         <TextField
                             margin="normal"
@@ -80,6 +108,8 @@ export default function SignIn() {
                             type="password"
                             id="password"
                             autoComplete="current-password"
+                            onChange={(e)=>setPassword(e.target.value)}
+
                         />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
@@ -91,6 +121,7 @@ export default function SignIn() {
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
+                            onClick={checkTextInput}
                         >
                             Sign In
                         </Button>
