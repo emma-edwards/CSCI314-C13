@@ -54,7 +54,8 @@ export default function SignIn() {
         e.preventDefault()
         const signIn={email, password}
         console.log(signIn)
-        fetch(`http://localhost:8080/customer/findCustomer/${email}`)
+        fetch(`http://localhost:8080/customer/findCustomerEmail/${email}`)
+        fetch(`http://localhost:8080/customer/findCustomerPassword/${password}`)
         .then(response => {
             if (!response.ok){
                 alert('Incorrect Email or Password');
