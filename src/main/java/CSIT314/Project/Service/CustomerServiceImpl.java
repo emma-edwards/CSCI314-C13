@@ -8,6 +8,7 @@ public interface CustomerServiceImpl {
     public List<Customer> getAllCustomers();
     public Customer getCustomerById(Long id);
     public Customer createCustomer(Customer newCustomer);
+    public Customer getCustomerFind(String email);
     public Customer updateCustomer(Customer customer, Long id);
     public void deleteCustomer(Long id);
 }

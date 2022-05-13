@@ -1,6 +1,7 @@
 package CSIT314.Project.Service;
 
 import CSIT314.Project.Exceptions.CustomException;
+import CSIT314.Project.Exceptions.CustomException2;
 import CSIT314.Project.Model.Customer;
 import CSIT314.Project.Repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,14 @@ public class CustomerService implements CustomerServiceImpl {
 
     public Customer getCustomerById(Long id) {
         return customerRepository.findById(id).orElseThrow(() -> new CustomException(id, "Customer"));
+    }
+
+    public Customer getCustomerFind(String email){
+        if(customerRepository.findByEmail(email).isPresent()) {
+            return customerRepository.findByEmail(email).orElseThrow(() -> new CustomException2("Cannot find email"));
+        }else{
+            throw new CustomException2("Incorrect Email or Password");
+        }
     }
 
     public Customer createCustomer(Customer newCustomer){

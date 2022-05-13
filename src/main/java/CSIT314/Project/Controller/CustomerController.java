@@ -25,6 +25,11 @@ public class CustomerController {
         return customerService.getCustomerById(id);
     }
 
+    @GetMapping("/findCustomer/{email}")
+    Customer getCustomerFind(@PathVariable String email) {
+        return customerService.getCustomerFind(email);
+    }
+
     @PostMapping("/addCustomer")
     Customer createCustomer(@RequestBody Customer newCustomer) {
         return customerService.createCustomer(newCustomer);
