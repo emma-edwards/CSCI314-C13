@@ -16,7 +16,7 @@ import { Outlet, Link as RouterLink } from "react-router-dom";
 const pages = [['Submit Callout', '/SubmitClaim'], ['Vehicle Registration', '/VehicleReg']];
 //const pageRoutes = ['/SubmitClaim', '/VehicleReg'];
 //const numPages = 2;
-const settings = [['Home', '/MemberHome' ], ['Membership', '/EditMembership'], ['Logout', '/']];
+const settings = [['Home', '/MemberHome' ], ['Membership', '/EditMembership'],['Edit Profile', '/EditProfile'], ['Logout', '/']];
 //const settingRoutes = [, '/EditMembership', '/Home'];
 
 const ResponsiveAppBar = () => {

@@ -14,19 +14,19 @@ export default function EditProfile() {
     /*
     This page's ui is modified using mui library.
     */
-    const[address1,setAddress1]=useState('')
-    const[address2,setAddress2]=useState('')
-    const[city,setCity]=useState('')
-    const[state,setState]=useState('')
-    const[postalCode,setPostalCode]=useState('')
-    const[country,setCountry]=useState('')
+    const[firstName,setFirstName]=useState('')
+    const[lastName,setLastName]=useState('')
+    const[phoneNumber,setPhoneNumber]=useState('')
+    const[DOB,setDOB]=useState('')
+    const[email,setEmail]=useState('')
+    const[password,SetPassword]=useState('')
 
     const checkTextInput = (e) => {
-        if (!address1.trim()) {
-            alert('Please Enter Address 1');
+        if (!firstName.trim()) {
+            alert('Please enter your first name');
             window.location.href = '/EditProfile'
-        }else if (!address2.trim()) {
-            alert('Please Enter Address 2');
+        }else if (!lastName.trim()) {
+            alert('Please enter your last name');
             window.location.href = '/EditProfile'
         }else{
             handleClick(e);
@@ -35,14 +35,14 @@ export default function EditProfile() {
 
     const handleClick=(e)=>{
         e.preventDefault()
-        const membership={address1, address2, city, state, postalCode, country}
-        console.log(membership)
+        const customer={firstName, lastName, phoneNumber, DOB, email, password}
+        console.log(customer)
         fetch("",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify()
         }).then(()=>{
-            console.log("Membership added")
+            console.log("Personal Profile Updated")
             window.location.href = '/MemberHome'
         })
     }
@@ -50,52 +50,52 @@ export default function EditProfile() {
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
-                Edit membership
+                Edit Personal Profile
             </Typography>
             <Grid container spacing={3}>
                 <Grid item xs={12}>
                     <TextField
                         required
-                        id="address1"
-                        name="address1"
-                        label="Address line 1"
+                        id="firstName"
+                        name="firstName"
+                        label="First Name"
                         fullWidth
-                        autoComplete="shipping address-line1"
+                        autoComplete="first name line"
                         variant="standard"
-                        onChange={(e)=>setAddress1(e.target.value)}
+                        onChange={(e)=>setFirstName(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12}>
                     <TextField
-                        id="address2"
-                        name="address2"
-                        label="Address line 2"
-                        fullWidth
-                        autoComplete="shipping address-line2"
-                        variant="standard"
-                        onChange={(e)=>setAddress2(e.target.value)}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
                         required
-                        id="city"
-                        name="city"
-                        label="City"
+                        id="lastName"
+                        name="lasrName"
+                        label="lasrtName"
                         fullWidth
-                        autoComplete="shipping address-level2"
+                        autoComplete="last name line"
                         variant="standard"
-                        onChange={(e)=>setCity(e.target.value)}
+                        onChange={(e)=>setLastName(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField
-                        id="state"
-                        name="state"
-                        label="State/Province/Region"
+                        id="email"
+                        name="email"
+                        label="Email"
+                        fullWidth
+                        autoComplete="email line"
+                        variant="standard"
+                        onChange={(e)=>setDOB(e.target.value)}
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        id="contactNumber"
+                        name="contactNumber"
+                        label="Contact Number"
                         fullWidth
                         variant="standard"
-                        onChange={(e)=>setState(e.target.value)}
+                        onChange={(e)=>setEmail(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -107,7 +107,7 @@ export default function EditProfile() {
                         fullWidth
                         autoComplete="shipping postal-code"
                         variant="standard"
-                        onChange={(e)=>setPostalCode(e.target.value)}
+                        onChange={(e)=>setPhoneNumber(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -119,21 +119,16 @@ export default function EditProfile() {
                         fullWidth
                         autoComplete="shipping country"
                         variant="standard"
-                        onChange={(e)=>setCountry(e.target.value)}
+                        onChange={(e)=>SetPassword(e.target.value)}
                     />
                 </Grid>
-                <Grid item xs={12}>
-                    <FormControlLabel
-                        control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-                        label="Use this address for payment details"
-                    />
-                </Grid>
+               
                 <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}
                 onClick={checkTextInput}>
                     Save Changes
                 </Button>
                 <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
-                    Cancel Membership
+                    Cancel 
                 </Button>
             </Grid>
         </React.Fragment>

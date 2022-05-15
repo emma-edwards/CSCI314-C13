@@ -10,6 +10,7 @@ import SignIn from './Pages/SignIn';
 import Subscriptions from './Pages/Subscriptions';
 import Pricing from './Pages/Pricing';
 import EditMembership from "./Pages/EditMembership";
+import EditProfile from './Pages/EditProfile';
 import reportWebVitals from './reportWebVitals';
 import ProfessionalReg from "./Pages/ProfessionalReg";
 import VehicleReg from "./Pages/VehicleReg";
@@ -38,6 +39,7 @@ export default function App() {
                     <Route path="Subscriptions" element={<Subscriptions />} />
                     <Route path="Pricing" element={<Pricing />} />
                     <Route path="EditMembership" element={<EditMembership />} />
+                    <Route path="EditProfile" element={<EditProfile />} />
                     <Route path="VehicleReg" element={<VehicleReg />} />
                     <Route path="SubmitClaim" element={<SubmitClaim />} />
                     <Route path="MemberHome" element={<MemberHome />} />
