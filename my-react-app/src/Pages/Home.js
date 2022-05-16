@@ -8,12 +8,15 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+
 import motorist from '../images/motorist.jpg';
 import mechanic from '../images/mechanic.jpg';
 
 const Home = () => {
     return (
         <>
+            <Container>
             <h1>Roadside Assistance Service</h1>
 
             {/*<RouterLink to="/SignIn">Customer Sign In</RouterLink>
@@ -139,6 +142,8 @@ const Home = () => {
 
 
             <Outlet />
+
+            </Container>
 
         </>
     )
