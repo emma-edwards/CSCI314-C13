@@ -6,6 +6,11 @@ import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 
+/*
+This component is from
+https://github.com/mui/material-ui/blob/v5.7.0/docs/data/material/getting-started/templates/blog/MainFeaturedPost.js
+*/
+
 function Welcome(props) {
     const { post } = props;
 
