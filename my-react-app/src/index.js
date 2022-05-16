@@ -22,8 +22,7 @@ import AvJobs from './Pages/AvJobs';
 import CurrentJobs from './Pages/CurrentJobs';
 import PNav from './Pages/PNav';
 import EditProfProfile from './Pages/EditProfProfile';
-import EditProfile from './Pages/EditProfile';
-
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default function App() {
     return (
