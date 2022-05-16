@@ -12,15 +12,21 @@ import CardMedia from "@mui/material/CardMedia";
 import motorist from "../images/motorist.jpg";
 import {Link as RouterLink} from "react-router-dom";
 import mechanic from "../images/mechanic.jpg";
+import Welcome from "../Components/Welcome";
+
+const welcome = {
+    title: 'Welcome, Member!',
+    description:
+        "What can we help with today?",
+    image: 'https://source.unsplash.com/random',
+};
+
 
 const MemberHome = () => {
     return (
         <Container>
 
-            <h1>Welcome, Member!</h1>
-
-            <h3>What can we help with today?</h3>
-
+            <Welcome post={welcome} />
 
             <Box sx={{ flexGrow:1 }}>
 
