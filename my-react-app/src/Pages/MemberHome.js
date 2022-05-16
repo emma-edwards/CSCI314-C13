@@ -38,7 +38,13 @@ const MemberHome = () => {
                                 </CardContent>
                                 <CardActions>
                                     <RouterLink to="/SubmitClaim">
-                                        <Button size="small">Submit callout</Button>
+                                        <Button
+                                            type="submit"
+                                                fullWidth
+                                                variant="contained"
+                                                sx={{ mt: 3, mb: 2 }}
+                                        >
+                                            Submit callout</Button>
                                     </RouterLink>
                                 </CardActions>
                             </Card>
@@ -57,10 +63,21 @@ const MemberHome = () => {
                                 </CardContent>
                                 <CardActions>
                                     <RouterLink to="/EditMembership">
-                                        <Button size="small">Edit Membership</Button>
+                                        <Button
+                                            type="submit"
+                                            fullWidth
+                                            variant="contained"
+                                            sx={{ mt: 3, mb: 2 }}
+                                        >Edit Membership</Button>
                                     </RouterLink>
                                     <RouterLink to="/VehicleReg">
-                                        <Button size="small">Vehicle Registration</Button>
+                                        <Button
+                                            type="submit"
+                                            fullWidth
+                                            variant="contained"
+                                            sx={{ mt: 3, mb: 2 }}
+                                        >
+                                            Vehicle Registration</Button>
                                     </RouterLink>
                                 </CardActions>
                             </Card>

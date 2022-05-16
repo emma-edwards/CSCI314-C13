@@ -57,7 +57,12 @@ const Home = () => {
                                 </CardContent>
                                 <CardActions>
                                     <RouterLink to='/SignUp'>
-                                        <Button>Sign up</Button>
+                                        <Button
+                                            type="submit"
+                                            fullWidth
+                                            variant="contained"
+                                            sx={{ mt: 3, mb: 2 }}
+                                        >Sign up</Button>
                                     </RouterLink>
                                 </CardActions>
                             </Card>
@@ -82,7 +87,12 @@ const Home = () => {
                                 </CardContent>
                                 <CardActions>
                                     <RouterLink to='/ProfessionalReg'>
-                                        <Button>Sign up</Button>
+                                        <Button
+                                            type="submit"
+                                            fullWidth
+                                            variant="contained"
+                                            sx={{ mt: 3, mb: 2 }}
+                                        >Sign up</Button>
                                     </RouterLink>
                                 </CardActions>
                             </Card>
