@@ -21,6 +21,12 @@ import mechanic from '../images/mechanic.jpg';
 import { Outlet, Link as RouterLink } from "react-router-dom";
 
 
+/*
+
+    The layout is modified from
+    https://github.com/mui/material-ui/blob/v5.7.0/docs/data/material/getting-started/templates/album/Album.js
+
+*/
 function Copyright() {
     return (
         <Typography variant="body2" color="text.secondary" align="center">
