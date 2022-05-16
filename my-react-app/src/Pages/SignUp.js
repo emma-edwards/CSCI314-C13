@@ -31,26 +31,15 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-    /*
-    This page's ui is modified using mui library.
-    */
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
     const[firstName,setFirstName]=useState('')
     const[lastName,setLastName]=useState('')
     const[password,setPassword]=useState('')
     const[email,setEmail]=useState('')
 
-
+ 
     const checkTextInput = (e) => {
         if (!firstName.trim()) {
-            alert('Please Enter First Name');
+            alert('Please Enter First Name'); 
             window.location.href = '/SignUp'
         }else if (!lastName.trim()) {
             alert('Please Enter Last Name');
@@ -65,7 +54,7 @@ export default function SignUp() {
             handleClick(e);
         }
     }
-
+    
     const handleClick=(e)=>{
         e.preventDefault()
         const signUp={firstName, lastName, password, email}
@@ -158,15 +147,15 @@ export default function SignUp() {
                             </Grid>
                         </Grid>
                         {/*<RouterLink to="/Pricing">*/}
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
-                                onClick={checkTextInput}
-                            >
-                                Sign Up
-                            </Button>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            sx={{ mt: 3, mb: 2 }}
+                            onClick={checkTextInput}
+                        >
+                            Sign Up
+                        </Button>
                         {/*</RouterLink>*/}
                         <Grid container justifyContent="flex-end">
                             <Grid item>

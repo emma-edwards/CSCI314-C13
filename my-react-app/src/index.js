@@ -10,6 +10,7 @@ import SignIn from './Pages/SignIn';
 import Subscriptions from './Pages/Subscriptions';
 import Pricing from './Pages/Pricing';
 import EditMembership from "./Pages/EditMembership";
+import EditProfile from './Pages/EditProfile';
 import reportWebVitals from './reportWebVitals';
 import ProfessionalReg from "./Pages/ProfessinalReg";
 import VehicleReg from "./Pages/VehicleReg";
@@ -21,6 +22,7 @@ import ProfessionalHome from './Pages/ProfessionalHome';
 import AvJobs from './Pages/AvJobs';
 import CurrentJobs from './Pages/CurrentJobs';
 import PNav from './Pages/PNav';
+import EditProfProfile from './Pages/EditProfProfile';
 
 
 export default function App() {
@@ -39,6 +41,7 @@ export default function App() {
                     <Route path="Subscriptions" element={<Subscriptions />} />
                     <Route path="Pricing" element={<Pricing />} />
                     <Route path="EditMembership" element={<EditMembership />} />
+                    <Route path="EditProfile" element={<EditProfile />} />
                     <Route path="VehicleReg" element={<VehicleReg />} />
                     <Route path="SubmitClaim" element={<SubmitClaim />} />
                     <Route path="SignUp" element={<SignUp />} />
@@ -54,6 +57,7 @@ export default function App() {
                     <Route path="ProfessionalHome" element={<ProfessionalHome />} />
                     <Route path="AvJobs" element={<AvJobs />} />
                     <Route path="CurrentJobs" element={<CurrentJobs />} />
+                    <Route path="EditProfProfile" element={<EditProfProfile />} />
                 </Route>
 
             </Routes>
