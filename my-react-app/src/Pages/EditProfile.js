@@ -6,8 +6,10 @@ import { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import Stack from '@mui/material/Stack';
 import Button from "@mui/material/Button";
 
 export default function EditProfile() {
@@ -17,7 +19,8 @@ export default function EditProfile() {
     const[firstName,setFirstName]=useState('')
     const[lastName,setLastName]=useState('')
     const[phoneNumber,setPhoneNumber]=useState('')
-    const[DOB,setDOB]=useState('')
+    //const[DOB,setDOB]=useState('')
+    const[DOB,setDOB]=useState(new Date())
     const[email,setEmail]=useState('')
     const[password,SetPassword]=useState('')
 
@@ -55,7 +58,6 @@ export default function EditProfile() {
             <Grid container spacing={3}>
                 <Grid item xs={12}>
                     <TextField
-                        required
                         id="firstName"
                         name="firstName"
                         label="First Name"
@@ -67,7 +69,6 @@ export default function EditProfile() {
                 </Grid>
                 <Grid item xs={12}>
                     <TextField
-                        required
                         id="lastName"
                         name="lasrName"
                         label="lasrtName"
@@ -77,7 +78,7 @@ export default function EditProfile() {
                         onChange={(e)=>setLastName(e.target.value)}
                     />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
                     <TextField
                         id="email"
                         name="email"
@@ -88,7 +89,7 @@ export default function EditProfile() {
                         onChange={(e)=>setDOB(e.target.value)}
                     />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
                     <TextField
                         id="contactNumber"
                         name="contactNumber"
@@ -98,26 +99,28 @@ export default function EditProfile() {
                         onChange={(e)=>setEmail(e.target.value)}
                     />
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="zip"
-                        name="zip"
-                        label="Zip / Postal code"
-                        fullWidth
-                        autoComplete="shipping postal-code"
-                        variant="standard"
-                        onChange={(e)=>setPhoneNumber(e.target.value)}
-                    />
+                <Grid item xs={12}>
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                        <Stack spacing={3}>
+                            <DesktopDatePicker
+                            label="DOB"
+                            value={DOB}
+                            minDate={new Date('1900-01-01')}
+                            onChange={(newValue) => {
+                                setDOB(newValue);
+                            }}
+                            renderInput={(params) => <TextField {...params} />}
+                            />
+                        </Stack>
+                    </LocalizationProvider>
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
                     <TextField
-                        required
-                        id="country"
-                        name="country"
-                        label="Country"
+                        id="password"
+                        name="password"
+                        label="Update Password"
                         fullWidth
-                        autoComplete="shipping country"
+                        autoComplete="update password"
                         variant="standard"
                         onChange={(e)=>SetPassword(e.target.value)}
                     />
