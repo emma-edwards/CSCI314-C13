@@ -20,6 +20,7 @@ import ProfessionalHome from './Pages/ProfessionalHome';
 import AvJobs from './Pages/AvJobs';
 import CurrentJobs from './Pages/CurrentJobs';
 import PNav from './Pages/PNav';
+import EditProfProfile from './Pages/EditProfProfile';
 import EditProfile from './Pages/EditProfile';
 
 
@@ -48,7 +49,7 @@ export default function App() {
                     <Route path="ProfessionalHome" element={<ProfessionalHome />} />
                     <Route path="AvJobs" element={<AvJobs />} />
                     <Route path="CurrentJobs" element={<CurrentJobs />} />
-                    <Route path="EditProfile" element={<EditProfile />} />
+                    <Route path="EditProfProfile" element={<EditProfProfile />} />
                 </Route>
 
             </Routes>

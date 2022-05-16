@@ -55,7 +55,7 @@ const ProfessionalHome = () => {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <RouterLink to="/EditProfile">
+                                    <RouterLink to="/EditProfProfile">
                                         <Button size="small">Profile</Button>
                                     </RouterLink>
                                 </CardActions>
