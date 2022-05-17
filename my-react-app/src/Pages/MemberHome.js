@@ -12,15 +12,21 @@ import CardMedia from "@mui/material/CardMedia";
 import motorist from "../images/motorist.jpg";
 import {Link as RouterLink} from "react-router-dom";
 import mechanic from "../images/mechanic.jpg";
+import Welcome from "../Components/Welcome";
+
+const welcome = {
+    title: 'Welcome, Member!',
+    description:
+        "What can we help with today?",
+    image: 'https://source.unsplash.com/random',
+};
+
 
 const MemberHome = () => {
     return (
         <Container>
 
-            <h1>Welcome, Member!</h1>
-
-            <h3>What can we help with today?</h3>
-
+            <Welcome post={welcome} />
 
             <Box sx={{ flexGrow:1 }}>
 
@@ -38,7 +44,13 @@ const MemberHome = () => {
                                 </CardContent>
                                 <CardActions>
                                     <RouterLink to="/SubmitClaim">
-                                        <Button size="small">Submit callout</Button>
+                                        <Button
+                                            type="submit"
+                                                fullWidth
+                                                variant="contained"
+                                                sx={{ mt: 3, mb: 2 }}
+                                        >
+                                            Submit callout</Button>
                                     </RouterLink>
                                 </CardActions>
                             </Card>
@@ -57,10 +69,21 @@ const MemberHome = () => {
                                 </CardContent>
                                 <CardActions>
                                     <RouterLink to="/EditMembership">
-                                        <Button size="small">Edit Membership</Button>
+                                        <Button
+                                            type="submit"
+                                            fullWidth
+                                            variant="contained"
+                                            sx={{ mt: 3, mb: 2 }}
+                                        >Edit Membership</Button>
                                     </RouterLink>
                                     <RouterLink to="/VehicleReg">
-                                        <Button size="small">Vehicle Registration</Button>
+                                        <Button
+                                            type="submit"
+                                            fullWidth
+                                            variant="contained"
+                                            sx={{ mt: 3, mb: 2 }}
+                                        >
+                                            Vehicle Registration</Button>
                                     </RouterLink>
                                 </CardActions>
                             </Card>

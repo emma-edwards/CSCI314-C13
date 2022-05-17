@@ -8,14 +8,20 @@ import {Link as RouterLink} from "react-router-dom";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import * as React from "react";
+import Welcome from "../Components/Welcome";
+
+const welcome = {
+    title: 'Welcome, Professional!',
+    description:
+        "What can we help with today?",
+    image: 'https://source.unsplash.com/random',
+};
 
 const ProfessionalHome = () => {
     return (
         <Container>
 
-            <h1>Welcome, Professional!</h1>
-
-            <h3>What can we help with today?</h3>
+            <Welcome post={welcome} />
 
 
             <Box sx={{ flexGrow:1 }}>
