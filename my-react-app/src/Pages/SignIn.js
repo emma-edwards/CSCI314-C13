@@ -55,6 +55,23 @@ export default function SignIn() {
         const signIn={email, password}
         console.log(signIn)
         fetch(`http://localhost:8080/customer/findCustomerEmail/${email}`)
+        .then(response => {
+            if (!response.ok){
+                alert('Incorrect Email or Password');
+                throw response 
+            }
+                return response.json()
+        })
+        .then(json=>{
+            console.log(json)
+            handleClick2(e)
+        })
+    }
+
+    const handleClick2=(e)=>{
+        e.preventDefault()
+        const signIn={email, password}
+        console.log(signIn)
         fetch(`http://localhost:8080/customer/findCustomerPassword/${password}`)
         .then(response => {
             if (!response.ok){
