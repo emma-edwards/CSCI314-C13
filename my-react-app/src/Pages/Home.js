@@ -100,6 +100,7 @@ export default function Home() {
                     </Container>
                 </Box>
 
+                <Container>
                 <Box sx={{ flexGrow:1 }}>
 
                     <Grid container columns={6} spacing={2}>
@@ -168,6 +169,7 @@ export default function Home() {
                     </Grid>
 
                 </Box>
+                </Container>
 
             </main>
             {/* Footer */}
