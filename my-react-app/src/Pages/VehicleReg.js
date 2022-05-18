@@ -108,9 +108,6 @@ export default function VehicleReg() {
                       onClick={checkTextInput}>
                     Submit Registration
                 </Button>
-                <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
-                    Edit Registration
-                </Button>
             </Grid>
         </React.Fragment>
     );
