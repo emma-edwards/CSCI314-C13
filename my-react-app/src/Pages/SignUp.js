@@ -146,17 +146,17 @@ export default function SignUp() {
                                 />
                             </Grid>
                         </Grid>
-                        <RouterLink to="/Pricing">
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
-                                onClick={checkTextInput}
-                            >
-                                Sign Up
-                            </Button>
-                        </RouterLink>
+                        {/*<RouterLink to="/Pricing">*/}
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            sx={{ mt: 3, mb: 2 }}
+                            onClick={checkTextInput}
+                        >
+                            Sign Up
+                        </Button>
+                        {/*</RouterLink>*/}
                         <Grid container justifyContent="flex-end">
                             <Grid item>
                                 <RouterLink to="/SignIn" variant="body2">
