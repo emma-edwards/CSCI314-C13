@@ -138,7 +138,7 @@ export default function ProfessionalReg() {
                                 />
                             </Grid>
                         </Grid>
-                        <RouterLink to="/Pricing">
+                        <RouterLink to="/ProfessionalHome">
                             <Button
                                 type="submit"
                                 fullWidth
