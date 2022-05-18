@@ -33,7 +33,7 @@ public class CustomerService implements CustomerServiceImpl {
 
     public Customer getCustomerFindPassword(String password){
         if(customerRepository.findByPassword(password).isPresent()) {
-            return customerRepository.findByPassword(password).orElseThrow(() -> new CustomException2("Cannot find email"));
+            return customerRepository.findByPassword(password).orElseThrow(() -> new CustomException2("Cannot find password"));
         }else{
             throw new CustomException2("Incorrect Email or Password");
         }
