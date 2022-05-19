@@ -49,6 +49,7 @@ export default function SubmitClaim() {
                         label="Location"
                         fullWidth
                         variant="standard"
+                        onChange={(e)=>setLocation(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} sm={12}>
@@ -61,6 +62,7 @@ export default function SubmitClaim() {
                         variant="standard"
                         minRows={4}
                         multiline
+                        onChange={(e)=>setCustomerNotes(e.target.value)}
                     />
                 </Grid>
                 <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}
