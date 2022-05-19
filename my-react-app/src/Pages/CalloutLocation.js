@@ -1,14 +1,54 @@
 import * as React from 'react';
- import Hook,{useState, useRef, useEffect} from 'react';
+import Hook,{useState, useRef, useEffect} from 'react';
 //import {Wrapper, Status} from "@googlemaps/react-wrapper";
 import {Map, GoogleApiWrapper, Marker} from 'google-maps-react';
-//Map CSS
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+//import geocoder from 'google-geocoder';
+//CSS
 const MapStyles = {
-    width: '100%',
+    width: '80%',
     height: '700px',
+    margin: '300px 10%',
+    padding: '10px',
 };
 
+{/*onst geocode = geocoder({
+    key: 'AIzaSyADWRrnjbHsVNlFsQcKBfzydPxDSMRyUX4'
+});
+*/}
+const SubmitClaim=()=>{
+    const[location,setLocation]=useState('')
+    const[customerNotes,setCustomerNotes]=useState('')
 
+    const checkTextInput = (e) => {
+        if (!location.trim()) {
+            alert('Please Enter Location');
+            window.location.href = '/submitClaim'
+        }else if (!customerNotes.trim()) {
+            alert('Please Enter Notes');
+            window.location.href = '/submitClaim'
+        }else{
+            handleClick(e);
+        }
+    }
+
+    const handleClick=(e)=>{
+        e.preventDefault()
+        const request={location, customerNotes}
+        console.log(request)
+        fetch("http://localhost:8080/request/addRequest",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(request)
+        }).then(()=>{
+            console.log("Request added")
+            window.location.href = '/MemberHome'
+        })
+    }
+};
 
 export class  CalloutLocation extends React.Component{
     //CONSTRUCTOR
@@ -18,7 +58,9 @@ export class  CalloutLocation extends React.Component{
             stores: [{lat: -34.405, lng: 150.878},
                 {latitude: -34.405, longitude: 150.878},
                 {latitude: -34.424, longitude: 150.882},
-                {latitude: -34.421, longitude: 150.909}]
+                {latitude: -34.421, longitude: 150.909}],
+            location:'',
+            customerNotes:''
         }
     }
 
@@ -33,12 +75,54 @@ export class  CalloutLocation extends React.Component{
             />
         })
     }
+/*
+    callBack = (latlng) => {
+        console.log(latlng[0]);
+        console.log(latlng[1]);
+    }
 
+    geoTest = (callBack) => {
+        let latlng = new Array(2);
+        let address = '223 Edenbridge Dr, Toronto';
+        geocode.find({'address': address}, function(results, status)
+        {
+                latlng[0] = results[0].geometry.location.lat();
+                latlng[1] = results[1].geometry.location.lng();
+        })
+        //console.log(geo.find('223 Edenbridge Dr, Toronto'));
+    }
+*/
+    /*
+        checkTextInput = (e) => {
+            if (location.trim()) {
+                alert('Please Enter Location');
+                window.location.href = '/submitClaim'
+            }else if (customerNotes.trim()) {
+                alert('Please Enter Notes');
+                window.location.href = '/submitClaim'
+            }else{
+                handleClick(e);
+            }
+        }
+
+        handleClick = (e) => {
+            e.preventDefault()
+            const request={location, customerNotes}
+            console.log(request)
+            fetch("http://localhost:8080/request/addRequest",{
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify(request)
+            }).then(()=>{
+                console.log("Request added")
+                window.location.href = '/MemberHome'
+            })
+        }
+*/
     //RENDER
     render() {
         return (
-            <h1>Map goes here
-
+            <div>Map goes here
                 <Map
                     google={this.props.google}
                     zoom={13}
@@ -47,8 +131,36 @@ export class  CalloutLocation extends React.Component{
                 >
                     {this.displayMarkers()}
                 </Map>
-
-            </h1>
+                <React.Fragment>
+                    <Typography variant="h6" gutterBottom>
+                        Submit callout
+                    </Typography>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} sm={12}>
+                            <TextField
+                                required
+                                id="location"
+                                name="location"
+                                label="Location"
+                                fullWidth
+                                variant="standard"
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={12}>
+                            <TextField
+                                required
+                                id="details"
+                                name="details"
+                                label="Incident Details"
+                                fullWidth
+                                variant="standard"
+                                minRows={4}
+                                multiline
+                            />
+                        </Grid>
+                    </Grid>
+                </React.Fragment>
+            </div>
         );
     }
 }

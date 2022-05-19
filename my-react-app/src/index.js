@@ -12,7 +12,7 @@ import Pricing from './Pages/Pricing';
 import EditMembership from "./Pages/EditMembership";
 import EditProfile from './Pages/EditProfile';
 import reportWebVitals from './reportWebVitals';
-import ProfessionalReg from "./Pages/ProfessinalReg";
+import ProfessionalReg from "./Pages/ProfessionalReg";
 import VehicleReg from "./Pages/VehicleReg";
 import SubmitClaim from "./Pages/SubmitClaim";
 import SignUp from "./Pages/SignUp";
