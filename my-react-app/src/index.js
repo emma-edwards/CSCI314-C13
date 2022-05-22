@@ -23,6 +23,7 @@ import AvJobs from './Pages/AvJobs';
 import CurrentJobs from './Pages/CurrentJobs';
 import PNav from './Pages/PNav';
 import EditProfProfile from './Pages/EditProfProfile';
+import ServiceReport from './Pages/ServiceReport';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -47,6 +48,7 @@ export default function App() {
                     <Route path="SubmitClaim" element={<SubmitClaim />} />
                     <Route path="SignUp" element={<SignUp />} />
                     <Route path="CalloutLocation" element={<CalloutLocation />} />
+                    <Route path="ServiceReport" element={<ServiceReport/>} />
 
 
 =========
