@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -45,7 +46,8 @@ const data = [
 
 
 
-const AvJobs = () => {
+export default function AvJobs() {
+
 
     // const [open, setOpen] = React.useState(false);
     //
@@ -61,12 +63,28 @@ const AvJobs = () => {
     //     handleClickOpen()
     // }
 
+
     const handleTake = (itemID) => {
         if (window.confirm("Do you want to take this job?")) {
             console.log('take job: ' + itemID);
         }
 
 
+    }
+
+    const handleClick=(e)=>{
+        fetch(`http://localhost:8080/request/getAll`) //Pulls all requests from the server 
+        .then(response => {
+            if (!response.ok){ //If the request fails, e.g. server is not running 
+                alert('There are no requests');
+                throw response 
+            }
+                return response.json() //Returns all the requests
+                //You will need to work out hoe to get each specific variable from it 
+        })
+        .then(json=>{
+            console.log(json)//Prints the requests in the console log 
+        })
     }
 
     return (
@@ -113,6 +131,15 @@ const AvJobs = () => {
                     </Grid>
                 </Grid>
 
+                <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                    onClick={handleClick}>
+                    Refresh Jobs
+                </Button>
+
                 {/*<Dialog
                     open={open}
                     onClose={handleClose(acceptType)}
@@ -142,5 +169,3 @@ const AvJobs = () => {
 
 
 };
-
-export default AvJobs;
