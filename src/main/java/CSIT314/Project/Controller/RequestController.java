@@ -1,9 +1,12 @@
 package CSIT314.Project.Controller;
 
+import CSIT314.Project.Model.Customer;
 import CSIT314.Project.Model.Request;
 import CSIT314.Project.Service.RequestServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/request")
@@ -12,6 +15,11 @@ public class RequestController {
 
     @Autowired
     private RequestServiceImpl requestService;
+
+    @GetMapping("/getAll")
+    public List<Request> getAllRequests(){
+        return requestService.getAllRequests();
+    }
 
     @GetMapping("/getRequest/{id}")
     Request getRequestById(@PathVariable Long id) {
