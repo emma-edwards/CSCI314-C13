@@ -26,6 +26,7 @@ import EditProfProfile from './Pages/EditProfProfile';
 import ServiceReport from './Pages/ServiceReport';
 import CancelClaim from "./Pages/CancelClaim";
 import 'bootstrap/dist/css/bootstrap.css';
+import PSignIn from "./Pages/PSignIn";
 
 
 export default function App() {
@@ -51,7 +52,7 @@ export default function App() {
                     <Route path="CalloutLocation" element={<CalloutLocation />} />
                     <Route path="ServiceReport" element={<ServiceReport/>} />
                     <Route path="CancelClaim" element={<CancelClaim/>} />
-
+                    <Route path="PSignIn" element={<PSignIn/>} />
 
 =========
                     <Route path="MemberHome" element={<MemberHome />} />
