@@ -12,16 +12,24 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
 export default function SubmitClaim() {
-    const[location,setLocation]=useState('')
-    const[customerNotes,setCustomerNotes]=useState('')
+    const[sNumber,setsNumber]=useState('')
+    const[streetName,setStreetName]=useState('')
+    const[suburb,setSuburb]=useState('')
+    const[report,setReport]=useState('')
 
     const checkTextInput = (e) => {
-        if (!location.trim()) {
-            alert('Please Enter Location'); 
+        if (!streetName.trim()) {
+            alert('Please Enter Street Name'); 
             window.location.href = '/submitClaim'
-        }else if (!customerNotes.trim()) {
-            alert('Please Enter Notes');
+        }else if (!sNumber.trim()) {
+            alert('Please Enter Street Number');
             window.location.href = '/submitClaim'
+        }else if (!suburb.trim()) {
+                alert('Please Enter Suburb');
+                window.location.href = '/submitClaim'
+        }else if (!report.trim()) {
+                    alert('Please Enter Notes about the claim');
+                    window.location.href = '/submitClaim'
         }else{
             handleClick(e);
         }
@@ -29,7 +37,7 @@ export default function SubmitClaim() {
 
     const handleClick=(e)=>{
         e.preventDefault()
-        const request={location, customerNotes}
+        const request={sNumber, streetName, suburb, report}
         console.log(request)
         fetch("http://localhost:8080/request/addRequest",{
             method:"POST",
@@ -56,7 +64,7 @@ export default function SubmitClaim() {
                         label="Street Number"
                         variant="standard"
                         fullWidth
-                        onChange={(e)=>setLocation(e.target.value)}
+                        onChange={(e)=>setsNumber(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} sm={5}>
@@ -67,7 +75,7 @@ export default function SubmitClaim() {
                         label="Street"
                         variant="standard"
                         fullWidth
-                        onChange={(e)=>setLocation(e.target.value)}
+                        onChange={(e)=>setStreetName(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} sm={4}>
@@ -78,7 +86,7 @@ export default function SubmitClaim() {
                         label="Suburb"
                         variant="standard"
                         fullWidth
-                        onChange={(e)=>setLocation(e.target.value)}
+                        onChange={(e)=>setSuburb(e.target.value)}
                     />
                 </Grid>
                 <Grid item xs={12} sm={4}>
@@ -109,7 +117,7 @@ export default function SubmitClaim() {
                         variant="standard"
                         minRows={4}
                         multiline
-                        onChange={(e)=>setCustomerNotes(e.target.value)}
+                        onChange={(e)=>setReport(e.target.value)}
                     />
                 </Grid>
                 <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}
