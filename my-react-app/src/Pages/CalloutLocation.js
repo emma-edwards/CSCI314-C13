@@ -7,6 +7,28 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 //import geocoder from 'google-geocoder';
+
+{/*REFERENCES
+Google
+05/5/2022
+developers.google.com/maps/documentation/javascript/react-map
+"Adding a Map and Markers to a React Application" (Last updated May 20, 2022)
+Google Maps Platform Documentation
+
+Rachael Njeri
+10/5/2022
+digitalocean.com/community/tutorials/how-to-integrate-the-google-maps-api-into-react-applications
+"How to Integrate the Google Maps API into React Applications" (Dec 12, 2019)
+DigitalOcean Community Tutorial
+
+
+Jessica Betts
+10/5/2022
+dev.to/jessicabetts/how-to-use-google-maps-api-and-react-js-26c2
+"How to use the Google MAps API with React.js" (Apr 25, 2019)
+DEV Community Tutorial
+*/}
+
 //CSS
 const MapStyles = {
     width: '80%',
@@ -65,6 +87,7 @@ export class  CalloutLocation extends React.Component{
     }
 
     //FUNCTIONS
+    //Jessica Betts (2019)
     displayMarkers = () => {
         return this.state.stores.map((store, index) => {
             return <Marker key={index} id={index} position={{
@@ -120,6 +143,7 @@ export class  CalloutLocation extends React.Component{
         }
 */
     //RENDER
+    // Rachael Njeri (2019)
     render() {
         return (
             <div>Map goes here
