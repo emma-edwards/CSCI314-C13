@@ -144,7 +144,7 @@ const ResponsiveAppBar = () => {
                   <MenuItem
                     key={setting[0]}
                     onClick={(v, i) => {
-                      window.location.href = setting[0];
+                      window.location.href = setting[1];
                       handleCloseUserMenu();
                     }}
                   >
