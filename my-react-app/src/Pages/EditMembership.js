@@ -41,37 +41,10 @@ export default function EditMembership() {
         // })
         if(value === 'Cancle membership'){
             handleClickOpen();
-            popUpWindow();
         } else {
             // navigated to the payment page.
+            window.location.href='/Payment';
         }
-    }
-
-    const popUpWindow=()=>{
-        <div>
-            <Dialog
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-            >
-                <DialogTitle id="alert-dialog-title">
-                    {"Do you want to cancle the policy?"}
-                </DialogTitle>
-                <DialogContent>
-                <DialogContentText id="alert-dialog-description">
-                    By click the Yes button, your vehicle will not longer have benefits of this roadside assistance policy, but you can still call for roadside assistance service by will need to pay onsite.
-                    Are you sure you wants to lost those benefits?
-                </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                <Button onClick={handleClose}>No</Button>
-                <Button onClick={handleClose} autoFocus>
-                    Yes
-                </Button>
-                </DialogActions>
-            </Dialog>
-        </div>
     }
 
     return (
@@ -100,6 +73,30 @@ export default function EditMembership() {
                     onClick={handleClick}>
                         Save Changes
                     </Button>
+                    <div>
+                        <Dialog
+                            open={open}
+                            onClose={handleClose}
+                            aria-labelledby="alert-dialog-title"
+                            aria-describedby="alert-dialog-description"
+                        >
+                            <DialogTitle id="alert-dialog-title">
+                                {"Do you want to cancle the policy?"}
+                            </DialogTitle>
+                            <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                By click the Yes button, your vehicle will not longer have benefits of this roadside assistance policy, but you can still call for roadside assistance service by will need to pay onsite.
+                                Are you sure you wants to lost those benefits?
+                            </DialogContentText>
+                            </DialogContent>
+                            <DialogActions>
+                            <Button onClick={handleClose}>No</Button>
+                            <Button onClick={handleClose} autoFocus>
+                                Yes
+                            </Button>
+                            </DialogActions>
+                        </Dialog>
+                    </div>
                     {/* <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
                         Cancel Membership
                     </Button> */}
