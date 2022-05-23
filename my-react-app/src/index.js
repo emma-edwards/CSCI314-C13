@@ -55,37 +55,18 @@ export default function App() {
           <Route path="CalloutLocation" element={<CalloutLocation />} />
           <Route path="ServiceReport" element={<ServiceReport />} />
           <Route path="CancelClaim" element={<CancelClaim />} />
-
-          <Route path="MemberHome" element={<MemberHome />} />
-        </Route>
-
-        <Route element={<PNav />}>
-          <Route path="ProfessionalHome" element={<ProfessionalHome />} />
-          <Route path="AvJobs" element={<AvJobs />} />
-          <Route path="CurrentJobs" element={<CurrentJobs />} />
-          <Route path="EditProfProfile" element={<EditProfProfile />} />
-        </Route>
-
-        <Route path="/" element={<Nav />}>
-          <Route index element={<MemberHome />} />
-          <Route path="Subscriptions" element={<Subscriptions />} />
-          <Route path="Pricing" element={<Pricing />} />
-          <Route path="EditMembership" element={<EditMembership />} />
-          <Route path="EditProfile" element={<EditProfile />} />
-          <Route path="VehicleReg" element={<VehicleReg />} />
-          <Route path="SubmitClaim" element={<SubmitClaim />} />
-          <Route path="SignUp" element={<SignUp />} />
-          <Route path="CalloutLocation" element={<CalloutLocation />} />
-          <Route path="ServiceReport" element={<ServiceReport />} />
           <Route path="Payment" element={<Payment />} />
+
           <Route path="MemberHome" element={<MemberHome />} />
         </Route>
+
         <Route element={<PNav />}>
           <Route path="ProfessionalHome" element={<ProfessionalHome />} />
           <Route path="AvJobs" element={<AvJobs />} />
           <Route path="CurrentJobs" element={<CurrentJobs />} />
           <Route path="EditProfProfile" element={<EditProfProfile />} />
         </Route>
+
       </Routes>
     </BrowserRouter>
   );
