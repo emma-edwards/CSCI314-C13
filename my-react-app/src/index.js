@@ -40,6 +40,8 @@ export default function App() {
         <Route path="SignUp" element={<SignUp />} />
         <Route path="Pricing" element={<Pricing />} />
         <Route path="ProfessionalReg" element={<ProfessionalReg />} />
+        <Route path="PSignIn" element={<PSignIn />} />
+
 
         <Route path="/" element={<Nav />}>
           <Route index element={<MemberHome />} />
@@ -53,7 +55,6 @@ export default function App() {
           <Route path="CalloutLocation" element={<CalloutLocation />} />
           <Route path="ServiceReport" element={<ServiceReport />} />
           <Route path="CancelClaim" element={<CancelClaim />} />
-          <Route path="PSignIn" element={<PSignIn />} />
 
           <Route path="MemberHome" element={<MemberHome />} />
         </Route>
