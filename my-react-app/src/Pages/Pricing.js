@@ -190,7 +190,7 @@ function PricingContent() {
                   </ul>
                 </CardContent>
                 <CardActions>
-                  <RouterLink to="/Payment">
+                  <RouterLink to={'/Payment/' + tier.price}>
                     <Button fullWidth variant={tier.buttonVariant}>
                       {tier.buttonText}
                     </Button>
