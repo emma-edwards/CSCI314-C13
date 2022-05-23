@@ -57,7 +57,7 @@ export default function App() {
 =========
                     <Route path="MemberHome" element={<MemberHome />} />
                 </Route>
->>>>>>>>> Temporary merge branch 2
+
 
                 <Route element={<PNav />}>
                     <Route path="ProfessionalHome" element={<ProfessionalHome />} />
