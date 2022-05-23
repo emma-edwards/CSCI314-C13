@@ -6,133 +6,102 @@ import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Button from "@mui/material/Button";
+import { Container, Radio, FormControl, FormLabel, RadioGroup, Dialog, DialogActions, DialogContent, DialogContentText, 
+    DialogTitle} from '@mui/material';
+import { useRadioGroup } from '@mui/material/RadioGroup';
+
 
 export default function EditMembership() {
     /*
     This page's ui is modified using mui library.
     */
-    const[address1,setAddress1]=useState('')
-    const[address2,setAddress2]=useState('')
-    const[city,setCity]=useState('')
-    const[state,setState]=useState('')
-    const[postalCode,setPostalCode]=useState('')
-    const[country,setCountry]=useState('')
+    
+    const[value,setValue]=useState('')
+    const [open, setOpen] = React.useState(false);
 
-    const checkTextInput = (e) => {
-        if (!address1.trim()) {
-            alert('Please Enter Address 1');
-            window.location.href = '/EditMembership'
-        }else if (!address2.trim()) {
-            alert('Please Enter Address 2');
-            window.location.href = '/EditMembership'
-        }else{
-            handleClick(e);
-        }
-    }
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     const handleClick=(e)=>{
         e.preventDefault()
-        const membership={address1, address2, city, state, postalCode, country}
-        console.log(membership)
-        fetch("http://localhost:8080/membership/addMembership",{
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(membership)
-        }).then(()=>{
-            console.log("Membership added")
-            window.location.href = '/MemberHome'
-        })
+        // const membership={address1, address2, city, state, postalCode, country}
+        // console.log(membership)
+        // fetch("http://localhost:8080/membership/addMembership",{
+        //     method:"POST",
+        //     headers:{"Content-Type":"application/json"},
+        //     body:JSON.stringify(membership)
+        // }).then(()=>{
+        //     console.log("Membership added")
+        //     window.location.href = '/MemberHome'
+        // })
+        if(value === 'Cancle membership'){
+            handleClickOpen();
+        } else {
+            // navigated to the payment page.
+            window.location.href='/Payment';
+        }
     }
 
     return (
         <React.Fragment>
-            <Typography variant="h6" gutterBottom>
-                Edit membership
-            </Typography>
-            <Grid container spacing={3}>
-                <Grid item xs={12}>
-                    <TextField
-                        required
-                        id="address1"
-                        name="address1"
-                        label="Address line 1"
-                        fullWidth
-                        autoComplete="shipping address-line1"
-                        variant="standard"
-                        onChange={(e)=>setAddress1(e.target.value)}
-                    />
+            <Container>
+                <Typography variant="h6" gutterBottom>
+                    Edit membership
+                </Typography>
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                    <FormControl>
+                        <FormLabel id="editMemberGroup">Update policy</FormLabel>
+                        <RadioGroup
+                            aria-labelledby="editMemberGroup"
+                            name="radio-buttons-group"
+                            value={value}
+                            onChange={(e)=>setValue(e.target.value)}
+                        >
+                            <FormControlLabel value="Renew membership" control={<Radio />} label="Renew" />
+                            <FormControlLabel value="Cancle membership" control={<Radio />} label="Cancle" />
+                        </RadioGroup>
+                    </FormControl>
+                    </Grid>
+
+                    <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}
+                    onClick={handleClick}>
+                        Save Changes
+                    </Button>
+                    <div>
+                        <Dialog
+                            open={open}
+                            onClose={handleClose}
+                            aria-labelledby="alert-dialog-title"
+                            aria-describedby="alert-dialog-description"
+                        >
+                            <DialogTitle id="alert-dialog-title">
+                                {"Do you want to cancle the policy?"}
+                            </DialogTitle>
+                            <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                By click the Yes button, your vehicle will not longer have benefits of this roadside assistance policy, but you can still call for roadside assistance service by will need to pay onsite.
+                                Are you sure you wants to lost those benefits?
+                            </DialogContentText>
+                            </DialogContent>
+                            <DialogActions>
+                            <Button onClick={handleClose}>No</Button>
+                            <Button onClick={handleClose} autoFocus>
+                                Yes
+                            </Button>
+                            </DialogActions>
+                        </Dialog>
+                    </div>
+                    {/* <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+                        Cancel Membership
+                    </Button> */}
                 </Grid>
-                <Grid item xs={12}>
-                    <TextField
-                        id="address2"
-                        name="address2"
-                        label="Address line 2"
-                        fullWidth
-                        autoComplete="shipping address-line2"
-                        variant="standard"
-                        onChange={(e)=>setAddress2(e.target.value)}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="city"
-                        name="city"
-                        label="City"
-                        fullWidth
-                        autoComplete="shipping address-level2"
-                        variant="standard"
-                        onChange={(e)=>setCity(e.target.value)}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        id="state"
-                        name="state"
-                        label="State/Province/Region"
-                        fullWidth
-                        variant="standard"
-                        onChange={(e)=>setState(e.target.value)}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="zip"
-                        name="zip"
-                        label="Zip / Postal code"
-                        fullWidth
-                        autoComplete="shipping postal-code"
-                        variant="standard"
-                        onChange={(e)=>setPostalCode(e.target.value)}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="country"
-                        name="country"
-                        label="Country"
-                        fullWidth
-                        autoComplete="shipping country"
-                        variant="standard"
-                        onChange={(e)=>setCountry(e.target.value)}
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <FormControlLabel
-                        control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-                        label="Use this address for payment details"
-                    />
-                </Grid>
-                <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}
-                onClick={checkTextInput}>
-                    Save Changes
-                </Button>
-                <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
-                    Cancel Membership
-                </Button>
-            </Grid>
+            </Container>
         </React.Fragment>
     );
 }

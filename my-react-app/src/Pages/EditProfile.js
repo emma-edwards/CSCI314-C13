@@ -11,6 +11,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import Stack from '@mui/material/Stack';
 import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
 
 export default function EditProfile() {
     /*
@@ -52,6 +53,7 @@ export default function EditProfile() {
 
     return (
         <React.Fragment>
+            <Container>
             <Typography variant="h6" gutterBottom>
                 Edit Personal Profile
             </Typography>
@@ -134,6 +136,7 @@ export default function EditProfile() {
                     Cancel 
                 </Button>
             </Grid>
+            </Container>
         </React.Fragment>
     );
 }
