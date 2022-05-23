@@ -27,10 +27,13 @@ function Payment() {
   const [skipped, setSkipped] = React.useState(new Set());
   const [paymentMethod, setPaymentMethod] = React.useState("credit");
 <<<<<<< HEAD
+<<<<<<< HEAD
   const [cardNumber, setCardNumber] = React.useState("");
   const [cvv, setCvv] = React.useState("");
   const [expiry, setExpiry] = React.useState("2022/01/01");
   const [name, setName] = React.useState("");
+=======
+>>>>>>> 0351a5a8bfe2811ca702bdbf1c9d5454e260361d
 =======
 >>>>>>> 0351a5a8bfe2811ca702bdbf1c9d5454e260361d
 
@@ -96,6 +99,7 @@ function Payment() {
           autoComplete="off"
         >
 <<<<<<< HEAD
+<<<<<<< HEAD
           <TextField
             error={name.length == 0}
             label="Card Holder Name"
@@ -132,6 +136,8 @@ function Payment() {
             variant="outlined"
           />
 =======
+=======
+>>>>>>> 0351a5a8bfe2811ca702bdbf1c9d5454e260361d
           <TextField label="Card Holder Name" variant="outlined" />
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DesktopDatePicker
@@ -144,6 +150,9 @@ function Payment() {
           <TextField fullWidth={true} label="Card Number" type="number" variant="outlined" />
 
           <TextField label="CVV" type="number" variant="outlined" />
+<<<<<<< HEAD
+>>>>>>> 0351a5a8bfe2811ca702bdbf1c9d5454e260361d
+=======
 >>>>>>> 0351a5a8bfe2811ca702bdbf1c9d5454e260361d
         </Box>
       );
