@@ -14,45 +14,40 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
-import { Outlet, Link as RouterLink } from "react-router-dom";
-    /*
+import { Outlet, Link as RouterLink } from 'react-router-dom';
+/*
     This page's ui is modified using mui library.
     */
 function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
 }
 
 const tiers = [
-    {
-        title: 'Pay-on-demand',
-        price: '0',
-        description: [
-            'Pay per service use',
-            'Prices are calculated and presented up front'
-        ],
-        buttonText: 'Sign up for free',
-        buttonVariant: 'outlined',
-    },
-    {
-        title: 'Subscription',
-        subheader: 'Most popular',
-        price: '120',
-        description: [
-            'Unlimited callouts with no extra cost'
-        ],
-        buttonText: 'Sign Up with subscription',
-        buttonVariant: 'contained',
-    }
-/*    {
+  {
+    title: 'Pay-on-demand',
+    price: '0',
+    description: ['Pay per service use', 'Prices are calculated and presented up front'],
+    buttonText: 'Sign up for free',
+    buttonVariant: 'outlined',
+  },
+  {
+    title: 'Subscription',
+    subheader: 'Most popular',
+    price: '120',
+    description: ['Unlimited callouts with no extra cost'],
+    buttonText: 'Sign Up with subscription',
+    buttonVariant: 'contained',
+  },
+  /*    {
         title: 'Enterprise',
         price: '30',
         description: [
@@ -92,11 +87,11 @@ const tiers = [
 ];*/
 
 function PricingContent() {
-    return (
-        <React.Fragment>
-            <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
-            <CssBaseline />
-            {/*<AppBar
+  return (
+    <React.Fragment>
+      <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
+      <CssBaseline />
+      {/*<AppBar
                 position="static"
                 color="default"
                 elevation={0}
@@ -137,94 +132,77 @@ function PricingContent() {
                     </Button>
                 </Toolbar>
             </AppBar>*/}
-            {/* Hero unit */}
-            <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
-                <Typography
-                    component="h1"
-                    variant="h2"
-                    align="center"
-                    color="text.primary"
-                    gutterBottom
-                >
-                    Pricing
-                </Typography>
-                {/*<Typography variant="h5" align="center" color="text.secondary" component="p">
+      {/* Hero unit */}
+      <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
+        <Typography component="h1" variant="h2" align="center" color="text.primary" gutterBottom>
+          Pricing
+        </Typography>
+        {/*<Typography variant="h5" align="center" color="text.secondary" component="p">
                     Quickly build an effective pricing table for your potential customers with
                     this layout. It&apos;s built with default MUI components with little
                     customization.
                 </Typography>*/}
-            </Container>
-            {/* End hero unit */}
-            <Container maxWidth="md" component="main">
-                <Grid container spacing={5} alignItems="flex-end">
-                    {tiers.map((tier) => (
-                        // Enterprise card is full width at sm breakpoint
-                        <Grid
-                            item
-                            key={tier.title}
-                            xs={12}
-                            sm={tier.title === 'Enterprise' ? 12 : 6}
-                            md={4}
-                        >
-                            <Card>
-                                <CardHeader
-                                    title={tier.title}
-                                    subheader={tier.subheader}
-                                    titleTypographyProps={{ align: 'center' }}
-                                    action={tier.title === 'Subscription' ? <StarIcon /> : null}
-                                    subheaderTypographyProps={{
-                                        align: 'center',
-                                    }}
-                                    sx={{
-                                        backgroundColor: (theme) =>
-                                            theme.palette.mode === 'light'
-                                                ? theme.palette.grey[200]
-                                                : theme.palette.grey[700],
-                                    }}
-                                />
-                                <CardContent>
-                                    <Box
-                                        sx={{
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            alignItems: 'baseline',
-                                            mb: 2,
-                                        }}
-                                    >
-                                        <Typography component="h2" variant="h3" color="text.primary">
-                                            ${tier.price}
-                                        </Typography>
-                                        <Typography variant="h6" color="text.secondary">
-                                            /year
-                                        </Typography>
-                                    </Box>
-                                    <ul>
-                                        {tier.description.map((line) => (
-                                            <Typography
-                                                component="li"
-                                                variant="subtitle1"
-                                                align="center"
-                                                key={line}
-                                            >
-                                                {line}
-                                            </Typography>
-                                        ))}
-                                    </ul>
-                                </CardContent>
-                                <CardActions>
-                                    <RouterLink to='/MemberHome'>
-                                        <Button fullWidth variant={tier.buttonVariant}>
-                                            {tier.buttonText}
-                                        </Button>
-                                    </RouterLink>
-                                </CardActions>
-                            </Card>
-                        </Grid>
+      </Container>
+      {/* End hero unit */}
+      <Container maxWidth="md" component="main">
+        <Grid container spacing={5} alignItems="flex-end">
+          {tiers.map((tier) => (
+            // Enterprise card is full width at sm breakpoint
+            <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
+              <Card>
+                <CardHeader
+                  title={tier.title}
+                  subheader={tier.subheader}
+                  titleTypographyProps={{ align: 'center' }}
+                  action={tier.title === 'Subscription' ? <StarIcon /> : null}
+                  subheaderTypographyProps={{
+                    align: 'center',
+                  }}
+                  sx={{
+                    backgroundColor: (theme) =>
+                      theme.palette.mode === 'light'
+                        ? theme.palette.grey[200]
+                        : theme.palette.grey[700],
+                  }}
+                />
+                <CardContent>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'baseline',
+                      mb: 2,
+                    }}
+                  >
+                    <Typography component="h2" variant="h3" color="text.primary">
+                      ${tier.price}
+                    </Typography>
+                    <Typography variant="h6" color="text.secondary">
+                      /year
+                    </Typography>
+                  </Box>
+                  <ul>
+                    {tier.description.map((line) => (
+                      <Typography component="li" variant="subtitle1" align="center" key={line}>
+                        {line}
+                      </Typography>
                     ))}
-                </Grid>
-            </Container>
-            {/* Footer */}
-            {/*<Container
+                  </ul>
+                </CardContent>
+                <CardActions>
+                  <RouterLink to="/Payment">
+                    <Button fullWidth variant={tier.buttonVariant}>
+                      {tier.buttonText}
+                    </Button>
+                  </RouterLink>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+      {/* Footer */}
+      {/*<Container
                 maxWidth="md"
                 component="footer"
                 sx={{
@@ -253,11 +231,11 @@ function PricingContent() {
                 </Grid>
                 <Copyright sx={{ mt: 5 }} />
             </Container>*/}
-            {/* End footer */}
-        </React.Fragment>
-    );
+      {/* End footer */}
+    </React.Fragment>
+  );
 }
 
 export default function Pricing() {
-    return <PricingContent />;
+  return <PricingContent />;
 }
