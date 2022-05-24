@@ -27,6 +27,8 @@ import ServiceReport from './Pages/ServiceReport';
 import CancelClaim from './Pages/CancelClaim';
 import 'bootstrap/dist/css/bootstrap.css';
 import PSignIn from './Pages/PSignIn';
+import PageNotFound from './Pages/PageNotFound';
+import Layout from './Pages/Layout';
 
 import Payment from './Pages/Payment';
 import ReviewNRating from './Pages/ReviewNRating';
@@ -35,14 +37,6 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Layout />}> */}
-        <Route index element={<Home />} />
-        <Route path="SignIn" element={<SignIn />} />
-        <Route path="SignUp" element={<SignUp />} />
-        <Route path="Pricing" element={<Pricing />} />
-        <Route path="ProfessionalReg" element={<ProfessionalReg />} />
-        <Route path="PSignIn" element={<PSignIn />} />
-
         <Route path="/" element={<Nav />}>
           <Route index element={<MemberHome />} />
           <Route path="Subscriptions" element={<Subscriptions />} />
@@ -51,11 +45,10 @@ export default function App() {
           <Route path="EditProfile" element={<EditProfile />} />
           <Route path="VehicleReg" element={<VehicleReg />} />
           <Route path="SubmitClaim" element={<SubmitClaim />} />
-          <Route path="SignUp" element={<SignUp />} />
           <Route path="CalloutLocation" element={<CalloutLocation />} />
           <Route path="ServiceReport" element={<ServiceReport />} />
           <Route path="CancelClaim" element={<CancelClaim />} />
-          <Route path="Payment/:amount" element={<Payment />} />
+          <Route path="Payment" element={<Payment />} />
           <Route path="MemberHome" element={<MemberHome />} />
           <Route path="ReviewNRating" element={<ReviewNRating/>} />
         </Route>
@@ -65,6 +58,14 @@ export default function App() {
           <Route path="AvJobs" element={<AvJobs />} />
           <Route path="CurrentJobs" element={<CurrentJobs />} />
           <Route path="EditProfProfile" element={<EditProfProfile />} />
+        </Route>
+        <Route path="/" element={<Layout />}>
+          <Route path="SignIn" element={<SignIn />} />
+          <Route path="SignUp" element={<SignUp />} />
+          <Route path="Pricing" element={<Pricing />} />
+          <Route path="ProfessionalReg" element={<ProfessionalReg />} />
+          <Route path="PSignIn" element={<PSignIn />} />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
