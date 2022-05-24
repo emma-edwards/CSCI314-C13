@@ -19,7 +19,7 @@ import {
 import { Padding } from '@mui/icons-material';
 import { DesktopDatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 const steps = ['Payment Method', 'Details', 'Confirmation'];
 
@@ -31,7 +31,8 @@ function Payment() {
   const [cvv, setCvv] = React.useState('');
   const [expiry, setExpiry] = React.useState('2022/01/01');
   const [name, setName] = React.useState('');
-  const { amount } = useParams();
+  const { search } = useLocation();
+  const query = new URLSearchParams(search);
 
   const isStepOptional = (step) => {
     return false;
@@ -71,7 +72,7 @@ function Payment() {
         <FormControl style={{ padding: 20 }}>
           <FormLabel id="demo-radio-buttons-group-label">Select Payment Method</FormLabel>
           <Stack sx={{ width: '100%' }} spacing={2}>
-            <Alert severity="info">For Payment of {amount} $</Alert>
+            <Alert severity="info">For Payment of {query.get('amount')} $</Alert>
           </Stack>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
