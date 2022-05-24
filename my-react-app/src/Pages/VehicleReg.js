@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
 
     /*
     This page's ui is modified using mui library.
@@ -52,6 +53,7 @@ export default function VehicleReg() {
 
     return (
         <React.Fragment>
+            <Container>
             <Typography variant="h6" gutterBottom>
                 Vehicle Registration
             </Typography>
@@ -109,6 +111,7 @@ export default function VehicleReg() {
                     Submit Registration
                 </Button>
             </Grid>
+            </Container>
         </React.Fragment>
     );
 }
