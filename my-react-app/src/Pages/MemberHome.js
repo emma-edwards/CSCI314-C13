@@ -89,6 +89,31 @@ const MemberHome = () => {
                             </Card>
                         </item>
                     </Grid>
+                    <Grid item xs={6} sm={3}>
+                        <item>
+                            <Card sx={{ minWidth: 275 }}>
+                                <CardContent>
+                                    <Typography variant="h5" component="div">
+                                        Leave a review?
+                                    </Typography>
+                                    <Typography variant="body2">
+                                        Please leave a review about Roadside assistance professional work
+                                    </Typography>
+                                </CardContent>
+                                <CardActions>
+                                    <RouterLink to="/ReviewNRating">
+                                        <Button
+                                            type="submit"
+                                                fullWidth
+                                                variant="contained"
+                                                sx={{ mt: 3, mb: 2 }}
+                                                >
+                                            Reviews</Button>
+                                    </RouterLink>
+                                </CardActions>
+                            </Card>
+                        </item>
+                    </Grid>
                 </Grid>
 
             </Box>

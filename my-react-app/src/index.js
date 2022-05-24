@@ -29,6 +29,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import PSignIn from './Pages/PSignIn';
 
 import Payment from './Pages/Payment';
+import ReviewNRating from './Pages/ReviewNRating';
 
 export default function App() {
   return (
@@ -56,6 +57,7 @@ export default function App() {
           <Route path="CancelClaim" element={<CancelClaim />} />
           <Route path="Payment/:amount" element={<Payment />} />
           <Route path="MemberHome" element={<MemberHome />} />
+          <Route path="ReviewNRating" element={<ReviewNRating/>} />
         </Route>
 
         <Route element={<PNav />}>
