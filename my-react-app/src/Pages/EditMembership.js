@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import { Container, Radio, FormControl, FormLabel, RadioGroup, Dialog, DialogActions, DialogContent, DialogContentText, 
     DialogTitle} from '@mui/material';
 import { useRadioGroup } from '@mui/material/RadioGroup';
+import { Outlet, Link as RouterLink } from 'react-router-dom';
 
 
 export default function EditMembership() {
@@ -43,7 +44,7 @@ export default function EditMembership() {
             handleClickOpen();
         } else {
             // navigated to the payment page.
-            window.location.href='/Payment';
+            window.location.href='/Payment?amount=120';
         }
     }
 

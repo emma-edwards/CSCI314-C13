@@ -72,7 +72,7 @@ function Payment() {
         <FormControl style={{ padding: 20 }}>
           <FormLabel id="demo-radio-buttons-group-label">Select Payment Method</FormLabel>
           <Stack sx={{ width: '100%' }} spacing={2}>
-            <Alert severity="info">For Payment of {query.get('amount')} $</Alert>
+            <Alert severity="info">For Payment of ${query.get('amount')} </Alert>
           </Stack>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
