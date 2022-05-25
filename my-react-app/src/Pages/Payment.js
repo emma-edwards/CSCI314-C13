@@ -44,7 +44,7 @@ function Payment() {
 
   const handleNext = () => {
     if (activeStep == 2) {
-      window.location.href = '/';
+      window.location.href = '/MemberHome';
     } else {
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }

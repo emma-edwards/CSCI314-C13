@@ -37,7 +37,16 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Nav />}>
+        <Route index element={<Home />} />
+        <Route path="SignIn" element={<SignIn />} />
+        <Route path="SignUp" element={<SignUp />} />
+        <Route path="Pricing" element={<Pricing />} />
+        <Route path="ProfessionalReg" element={<ProfessionalReg />} />
+        <Route path="PSignIn" element={<PSignIn />} />
+        <Route path="*" element={<PageNotFound />} />
+
+
+        <Route element={<Nav />}>
           <Route index element={<MemberHome />} />
           <Route path="Subscriptions" element={<Subscriptions />} />
           <Route path="Pricing" element={<Pricing />} />
@@ -59,14 +68,7 @@ export default function App() {
           <Route path="CurrentJobs" element={<CurrentJobs />} />
           <Route path="EditProfProfile" element={<EditProfProfile />} />
         </Route>
-        <Route path="/" element={<Layout />}>
-          <Route path="SignIn" element={<SignIn />} />
-          <Route path="SignUp" element={<SignUp />} />
-          <Route path="Pricing" element={<Pricing />} />
-          <Route path="ProfessionalReg" element={<ProfessionalReg />} />
-          <Route path="PSignIn" element={<PSignIn />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Route>
+
       </Routes>
     </BrowserRouter>
   );
