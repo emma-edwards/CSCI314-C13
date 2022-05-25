@@ -39,7 +39,7 @@ export default function EditMembership() {
         //     console.log("Membership added")
         //     window.location.href = '/MemberHome'
         // })
-        if(value === 'Cancle membership'){
+        if(value === 'Cancel membership'){
             handleClickOpen();
         } else {
             // navigated to the payment page.
@@ -64,7 +64,7 @@ export default function EditMembership() {
                             onChange={(e)=>setValue(e.target.value)}
                         >
                             <FormControlLabel value="Renew membership" control={<Radio />} label="Renew" />
-                            <FormControlLabel value="Cancle membership" control={<Radio />} label="Cancle" />
+                            <FormControlLabel value="Cancel membership" control={<Radio />} label="Cancel" />
                         </RadioGroup>
                     </FormControl>
                     </Grid>
@@ -81,7 +81,7 @@ export default function EditMembership() {
                             aria-describedby="alert-dialog-description"
                         >
                             <DialogTitle id="alert-dialog-title">
-                                {"Do you want to cancle the policy?"}
+                                {"Do you want to cancel the policy?"}
                             </DialogTitle>
                             <DialogContent>
                             <DialogContentText id="alert-dialog-description">
