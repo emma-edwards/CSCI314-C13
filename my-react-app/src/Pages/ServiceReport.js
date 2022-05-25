@@ -2,53 +2,131 @@
 Fetch callout info from backend and generate report
 */
 import * as React from 'react';
+import { useState, useEffect} from 'react';
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const reportTheme = createTheme();
+const customerId = 1;
+const requestId = 1;
+const professionalId = 1;
+const vehicleId= 1;
 
 export default function ServiceReport()
 {
+    const [customer, setCustomer] = useState([{}])
+    const [request, setRequest] = useState([{}])
+    const [professional, setProfessional] = useState([{}])
+    const [vehicle, setVehicle] = useState([{}])
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/customer/getCustomer/${customerId}`) //Pulls specific customer from the server
+            .then(response => {
+                if (!response.ok) { //If the pull fails
+                    alert('There are no customers');
+                    throw response
+                }
+                return response.json()
+            })
+            .then(json=>{
+                let customer = json;
+                setCustomer(customer);
+                console.log(customer);
+            })
+    }, []);
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/request/getRequest/${requestId}`) //Pulls specific request from the server
+            .then(response => {
+                if (!response.ok) { //If the pull fails
+                    alert('There are no requests');
+                    throw response
+                }
+                return response.json()
+            })
+            .then(json=>{
+                let request = json;
+                setRequest(request);
+                console.log(request);
+            })
+    }, []);
+/*
+    useEffect(() => {
+        fetch(`http://localhost:8080/professional/getProfessional/${professionalId}`) //Pulls specific professional from the server
+            .then(response => {
+                if (!response.ok) { //If the pull fails
+                    alert('There are no professionals');
+                    throw response
+                }
+                return response.json()
+            })
+            .then(json=>{
+                let request = json;
+                setRequest(request);
+                console.log(request);
+            })
+    }, []);
+*/
+    useEffect(() => {
+        fetch(`http://localhost:8080/vehicle/getVehicle/${vehicleId}`) //Pulls specific vehicle from the server
+            .then(response => {
+                if (!response.ok) { //If the pull fails
+                    alert('There are no vehicles');
+                    throw response
+                }
+                return response.json()
+            })
+            .then(json=>{
+                let vehicle = json;
+                setVehicle(vehicle);
+                console.log(vehicle);
+            })
+    }, []);
+
     return(
         <React.Fragment>
             <ThemeProvider theme={reportTheme}>
-                <Container>
+                <Container
+                           sx={{
+                               marginTop: 4,
+                               marginBottom: 4,
+                               alignItems: 'left',
+                               boxShadow: 1,
+                               padding: 2,
+                               borderRadius: 1
+                           }}
+                >
                     <Typography variant="h4" gutterBottom>
-                        <br/> Service Report
+                        Service Report
                     </Typography>
                     <Typography variant="h6" gutterBottom>
                         Roadside Assist
                     </Typography>
                     <Grid container spacing={3}>
-                        <Grid item xs={12} sm={6}>
-                            Order Number:
+                        <Grid item xs={12} sm={12}>
+                            Date: {new Date().toLocaleString() + ""}
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            Date:
+                            Customer ID: {customer.id}
+                        </Grid>
+                        <Grid item xs={6}>
+                            Customer Name: {customer.firstName} {customer.lastName}
+                        </Grid>
+                        <Grid item xs={6}>
+                            Customer Email: {customer.email}
+                        </Grid>
+                        <Grid item xs={6}>
+                            Customer Phone: {customer.phone}
                         </Grid>
                         <Grid item xs={12}>
-                            Customer Name:
-                        </Grid>
-                        <Grid item xs={12}>
-                            Customer Email:
-                        </Grid>
-                        <Grid item xs={12}>
-                            Address:
-                        </Grid>
-                        <Grid item xs={12}>
-                            City:
-                        </Grid>
-                        <Grid item xs={12}>
-                            State:
-                        </Grid>
-                        <Grid item xs={12}>
-                            Post Code:
+                            Address: {request.streetName}
                         </Grid>
                         <Grid item xs={12} sm={6} //This cell displays membership status at time of callout
                         >
-                            Call Status:
+                            Call Type: Subscription
                         </Grid>
                     </Grid>
 
@@ -57,13 +135,16 @@ export default function ServiceReport()
                     </Typography>
                     <Grid container spacing={3}>
                         <Grid item xs={12}>
-                            Callout Information:
+                            Callout Information: {request.report}
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            Make:
+                            Make: {vehicle.vehicleMake}
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            Model:
+                            Plate Number: {vehicle.plate}
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            Insurance: {vehicle.insuranceProvider}
                         </Grid>
                     </Grid>
 
