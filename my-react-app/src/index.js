@@ -37,15 +37,14 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="SignIn" element={<SignIn />} />
-          <Route path="SignUp" element={<SignUp />} />
-          <Route path="Pricing" element={<Pricing />} />
-          <Route path="ProfessionalReg" element={<ProfessionalReg />} />
-          <Route path="PSignIn" element={<PSignIn />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Route>
+        <Route index element={<Home />} />
+        <Route path="SignIn" element={<SignIn />} />
+        <Route path="SignUp" element={<SignUp />} />
+        <Route path="Pricing" element={<Pricing />} />
+        <Route path="ProfessionalReg" element={<ProfessionalReg />} />
+        <Route path="PSignIn" element={<PSignIn />} />
+        <Route path="*" element={<PageNotFound />} />
+
 
         <Route element={<Nav />}>
           <Route index element={<MemberHome />} />
