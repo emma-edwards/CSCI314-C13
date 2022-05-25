@@ -28,6 +28,7 @@ import CancelClaim from './Pages/CancelClaim';
 import 'bootstrap/dist/css/bootstrap.css';
 import PSignIn from './Pages/PSignIn';
 import PageNotFound from './Pages/PageNotFound';
+import CalloutHistory from './Pages/CalloutHistory';
 import Layout from './Pages/Layout';
 
 import Payment from './Pages/Payment';
@@ -60,6 +61,7 @@ export default function App() {
           <Route path="Payment" element={<Payment />} />
           <Route path="MemberHome" element={<MemberHome />} />
           <Route path="ReviewNRating" element={<ReviewNRating/>} />
+          <Route path="CalloutHistory" element={<CalloutHistory/>} />
         </Route>
 
         <Route element={<PNav />}>

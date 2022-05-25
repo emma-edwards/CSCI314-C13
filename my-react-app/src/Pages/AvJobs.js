@@ -68,7 +68,7 @@ export default function AvJobs() {
         if (window.confirm("Do you want to take this job?")) {
             console.log('take job: ' + itemID);
         }
-
+        window.location.href = '/CurrentJobs';
 
     }
 

@@ -15,6 +15,7 @@ import { Outlet, Link as RouterLink } from "react-router-dom";
 
 const pages = [
   ["Submit Callout", "/SubmitClaim"],
+  ["Callout History", "/CalloutHistory"],
   ["Vehicle Registration", "/VehicleReg"],
 ];
 //const pageRoutes = ['/SubmitClaim', '/VehicleReg'];

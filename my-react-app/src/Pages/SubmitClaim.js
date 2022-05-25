@@ -45,7 +45,7 @@ export default function SubmitClaim() {
             body:JSON.stringify(request)
         }).then(()=>{
             console.log("Request added")
-            window.location.href = '/MemberHome'
+            window.location.href = '/CalloutHistory'
         })
     }
 
