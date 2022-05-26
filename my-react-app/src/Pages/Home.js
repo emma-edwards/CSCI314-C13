@@ -178,16 +178,15 @@ export default function Home() {
 
             </main>
 
-            <Container>
-                <RouterLink to="/AdminSignIn">
-                    <button>Admin sign in</button>
-                </RouterLink>
-            </Container>
-
             {/* Footer */}
             <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
                 <Typography variant="h6" align="center" gutterBottom>
                     Footer
+                </Typography>
+                <Typography variant="h6" align="center" gutterBottom>
+                    <RouterLink to="/AdminSignIn">
+                        <Link variant="outlined" align="center">Admin sign in</Link>
+                    </RouterLink>
                 </Typography>
                 <Typography
                     variant="subtitle1"

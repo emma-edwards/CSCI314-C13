@@ -28,6 +28,9 @@ function Copyright(props) {
     );
 }
 
+const adminUser = "admin"
+const adminPass = "password"
+
 const theme = createTheme();
 
 const AdminSignIn = () => {
@@ -35,11 +38,19 @@ const AdminSignIn = () => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
-            email: data.get('email'),
+            email: data.get('username'),
             password: data.get('password'),
         });
 
-        window.location.href = '/AdminHome'
+        if (data.get('username') != adminUser) {
+            alert('Username is incorrect');
+            window.location.href = '/AdminSignIn'
+        } else if (data.get('password') != adminPass) {
+            alert('Password is incorrect');
+            window.location.href = '/AdminSignIn'
+        } else {
+            window.location.href = '/AdminHome'
+        }
     };
 
     return (
@@ -65,10 +76,10 @@ const AdminSignIn = () => {
                             margin="normal"
                             required
                             fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
+                            id="username"
+                            label="Username"
+                            name="username"
+                            autoComplete="username"
                             autoFocus
                         />
                         <TextField

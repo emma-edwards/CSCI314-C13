@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Outlet, Link as RouterLink } from "react-router-dom";
+import {useState} from "react";
 
     /*
     This page's ui is modified using mui library.
@@ -33,6 +34,56 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function ProfessionalReg() {
+    const[firstName,setFirstName]=useState('')
+    const[lastName,setLastName]=useState('')
+    const[dob,setDob]=useState('')
+    const[email,setEmail]=useState('')
+    const[phone,setPhone]=useState('')
+    const[yearsWorked,setYearsWorked]=useState('')
+    const[password,setPassword]=useState('')
+
+    const checkTextInput = (e) => {
+        if (!firstName.trim()) {
+            alert('Please Enter First Name');
+            window.location.href = '/ProfessionalReg'
+        }else if (!lastName.trim()) {
+            alert('Please Enter Last Name');
+            window.location.href = '/ProfessionalReg'
+        }else if (!dob.trim()) {
+            alert('Please Enter Date of birth');
+            window.location.href = '/ProfessionalReg'
+        }else if (!email.trim()) {
+            alert('Please Enter Email');
+            window.location.href = '/ProfessionalReg'
+        }else if (!phone.trim()) {
+            alert('Please Enter Phone');
+            window.location.href = '/ProfessionalReg'
+        }else if (!yearsWorked.trim()) {
+            alert('Please Enter years worked');
+            window.location.href = '/ProfessionalReg'
+        }else if (!password.trim()) {
+            alert('Please Enter Password');
+            window.location.href = '/ProfessionalReg'
+        }else{
+            handleClick(e);
+        }
+    }
+
+    const handleClick=(e)=>{
+        e.preventDefault()
+        const signUp={firstName, lastName, dob, email, phone, yearsWorked/*, password*/}
+        console.log(signUp)
+        fetch("http://localhost:8080/professional/addProfessional",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(signUp)
+        }).then(()=>{
+            console.log("Professional added")
+            window.location.href = '/ProfessionalHome'
+        })
+    }
+
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -71,6 +122,7 @@ export default function ProfessionalReg() {
                                     id="firstName"
                                     label="First Name"
                                     autoFocus
+                                    onChange={(e)=>setFirstName(e.target.value)}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -81,6 +133,7 @@ export default function ProfessionalReg() {
                                     label="Last Name"
                                     name="lastName"
                                     autoComplete="family-name"
+                                    onChange={(e)=>setLastName(e.target.value)}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -90,6 +143,7 @@ export default function ProfessionalReg() {
                                     id="dob"
                                     label="Date of birth"
                                     name="dob"
+                                    onChange={(e)=>setDob(e.target.value)}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -100,6 +154,7 @@ export default function ProfessionalReg() {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
+                                    onChange={(e)=>setEmail(e.target.value)}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -109,6 +164,7 @@ export default function ProfessionalReg() {
                                     id="phone"
                                     label="Phone Number"
                                     name="phone"
+                                    onChange={(e)=>setPhone(e.target.value)}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -118,6 +174,7 @@ export default function ProfessionalReg() {
                                     id="yearsWorked"
                                     label="Years Worked as a professional"
                                     name="yearsWorked"
+                                    onChange={(e)=>setYearsWorked(e.target.value)}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -129,6 +186,7 @@ export default function ProfessionalReg() {
                                     type="password"
                                     id="password"
                                     autoComplete="new-password"
+                                    onChange={(e)=>setPassword(e.target.value)}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -138,16 +196,17 @@ export default function ProfessionalReg() {
                                 />
                             </Grid>
                         </Grid>
-                        <RouterLink to="/ProfessionalHome">
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
-                            >
-                                Sign Up
-                            </Button>
-                        </RouterLink>
+
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            sx={{ mt: 3, mb: 2 }}
+                            onClick={checkTextInput}
+                        >
+                            Sign Up
+                        </Button>
+
                         <Grid container justifyContent="flex-end">
                             <Grid item>
                                 <RouterLink to="/SignIn" variant="body2">

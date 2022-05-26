@@ -9,14 +9,17 @@ import Button from "@mui/material/Button";
 import map1 from '../images/map2.PNG';
 import map2 from '../images/map3.PNG';
 
-const data = [
+const open = [
     {
         id: 1,
         address: '13 road street Wollongong',
         customer: 'John',
         cType: 'Battery flat',
         details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat'
-    },
+    }
+]
+
+const past = [
     {
         id: 2,
         address: '5 lake road Wollongong',
@@ -37,7 +40,7 @@ const CalloutHistory = () => {
         <Container>
             <h1>Open Callouts</h1>
 
-            {data.map((item, index) => (
+            {open.map((item, index) => (
                 <>
                     <Accordion>
                         <AccordionSummary
@@ -60,7 +63,31 @@ const CalloutHistory = () => {
                 </>
             ))}
 
+            <br/>
+            <h1>Past Callouts</h1>
 
+            {past.map((item, index) => (
+                <>
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id={item.id}
+                        >
+                            <Typography sx={{ width: '60%' }}>{item.address}</Typography>
+                            <Typography sx={{ color: 'text.secondary' }}>{item.cType}</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <img src={map2} height={"200px"} />
+                            <Typography sx={{ color: 'text.secondary' }}>submitted by: {item.customer}</Typography>
+                            <Typography>{item.details}</Typography>
+                            <Button onClick={() => cancel(item.id)}>
+                                Cancel
+                            </Button>
+                        </AccordionDetails>
+                    </Accordion>
+                </>
+            ))}
 
         </Container>
     );
