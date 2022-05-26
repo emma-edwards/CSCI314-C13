@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 public class MembershipService implements MembershipServiceImpl {
     @Autowired
     private MembershipRepository membershipRepository;
+    private MembershipService membershipService;
 
     public Membership getMembershipById(Long id) {
         return membershipRepository.findById(id).orElseThrow(() -> new CustomException(id, "Membership"));
@@ -19,13 +20,17 @@ public class MembershipService implements MembershipServiceImpl {
         return membershipRepository.save(newMembership);
     }
 
+    //Code is from https://spring.io/guides/tutorials/rest/
     public Membership updateMembership(Membership membership, Long id){
-        Membership membershipFound = getMembershipById(id);
-        if (membershipFound == null) {
-            throw new CustomException(id , "Customer");
-        }
-        membershipFound.setMembership(membership);
-        return membershipRepository.save(membershipFound);
+        return membershipRepository.findById(id)
+                .map(membershipMap -> {
+                    membershipMap.setMembership(membership);
+                    return membershipRepository.save(membership);
+                })
+                .orElseGet(() -> {
+                    membership.setId(id);
+                    return membershipRepository.save(membership);
+                });
     }
 
     public void deleteMembership(Long id){

@@ -19,13 +19,17 @@ public class VehcileService implements VehcileServiceImpl {
         return vehicleRepository.save(newVehicle);
     }
 
+    //Code is from https://spring.io/guides/tutorials/rest/
     public Vehicle updateVehicle(Vehicle vehicle, Long id){
-        Vehicle vehicleFound = getVehicleById(id);
-        if (vehicleFound == null) {
-            throw new CustomException(id , "Vehicle");
-        }
-        vehicleFound.setVehicle(vehicle);
-        return vehicleRepository.save(vehicleFound);
+        return vehicleRepository.findById(id)
+                .map(vehicleMap -> {
+                    vehicleMap.setVehicle(vehicle);
+                    return vehicleRepository.save(vehicle);
+                })
+                .orElseGet(() -> {
+                    vehicle.setId(id);
+                    return vehicleRepository.save(vehicle);
+                });
     }
 
     public void deleteVehicle(Long id){

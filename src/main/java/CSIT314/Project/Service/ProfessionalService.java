@@ -19,13 +19,17 @@ public class ProfessionalService implements ProfessionalServiceImpl {
         return professionalRepository.save(newProfessional);
     }
 
+    //Code is from https://spring.io/guides/tutorials/rest/
     public Professional updateProfessional(Professional professional, Long id){
-        Professional professionalFound = getProfessionalById(id);
-        if (professionalFound == null) {
-            throw new CustomException(id , "Professional");
-        }
-        professionalFound.setProfessional(professional);
-        return professionalRepository.save(professionalFound);
+        return professionalRepository.findById(id)
+                .map(professionalMap -> {
+                    professionalMap.setProfessional(professional);
+                    return professionalRepository.save(professional);
+                })
+                .orElseGet(() -> {
+                    professional.setId(id);
+                    return professionalRepository.save(professional);
+                });
     }
 
     public void deleteProfessional(Long id){

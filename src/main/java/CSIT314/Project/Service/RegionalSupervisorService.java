@@ -21,13 +21,17 @@ public class RegionalSupervisorService implements RegionalSupervisorServiceImpl 
         return regionalSupervisorRepository.save(newRegionalSupervisor);
     }
 
+    //Code is from https://spring.io/guides/tutorials/rest/
     public RegionalSupervisor updateRegionalSupervisor(RegionalSupervisor regionalSupervisor, Long id){
-        RegionalSupervisor regionalSupervisorFound = getRegionalSupervisorById(id);
-        if (regionalSupervisorFound == null) {
-            throw new CustomException(id , "Regional Supervisor");
-        }
-        regionalSupervisorFound.setRegionalSupervisor(regionalSupervisor);
-        return regionalSupervisorRepository.save(regionalSupervisorFound);
+        return regionalSupervisorRepository.findById(id)
+                .map(regionalSupervisorMap -> {
+                    regionalSupervisorMap.setRegionalSupervisor(regionalSupervisor);
+                    return regionalSupervisorRepository.save(regionalSupervisor);
+                })
+                .orElseGet(() -> {
+                    regionalSupervisor.setId(id);
+                    return regionalSupervisorRepository.save(regionalSupervisor);
+                });
     }
 
     public void deleteRegionalSupervisor(Long id){

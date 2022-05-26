@@ -27,13 +27,17 @@ public class RequestService implements RequestServiceImpl {
         return requestRepository.save(newRequest);
     }
 
+    //Code is from https://spring.io/guides/tutorials/rest/
     public Request updateRequest(Request request, Long id){
-        Request requestFound = getRequestById(id);
-        if (requestFound == null) {
-            throw new CustomException(id , "Regional Supervisor");
-        }
-        requestFound.setRequest(request);
-        return requestRepository.save(requestFound);
+        return requestRepository.findById(id)
+                .map(requestMap -> {
+                    requestMap.setRequest(request);
+                    return requestRepository.save(request);
+                })
+                .orElseGet(() -> {
+                    request.setId(id);
+                    return requestRepository.save(request);
+                });
     }
 
     public void deleteRequest(Long id){

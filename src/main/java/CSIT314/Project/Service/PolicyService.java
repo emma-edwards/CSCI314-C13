@@ -19,13 +19,17 @@ public class PolicyService implements PolicyServiceImpl {
         return policyRepository.save(newPolicy);
     }
 
+    //Code is from https://spring.io/guides/tutorials/rest/
     public Policy updatePolicy(Policy policy, Long id){
-        Policy policyFound = getPolicyById(id);
-        if (policyFound == null) {
-            throw new CustomException(id , "Policy");
-        }
-        policyFound.setPolicy(policy);
-        return policyRepository.save(policyFound);
+        return policyRepository.findById(id)
+                .map(policyMap -> {
+                    policyMap.setPolicy(policy);
+                    return policyRepository.save(policy);
+                })
+                .orElseGet(() -> {
+                    policy.setId(id);
+                    return policyRepository.save(policy);
+                });
     }
 
     public void deletePolicy(Long id){

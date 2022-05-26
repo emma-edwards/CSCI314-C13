@@ -43,13 +43,17 @@ public class CustomerService implements CustomerServiceImpl {
         return customerRepository.save(newCustomer);
     }
 
+    //Code is from https://spring.io/guides/tutorials/rest/
     public Customer updateCustomer(Customer customer, Long id){
-        Customer customerFound = getCustomerById(id);
-        if (customerFound == null) {
-            throw new CustomException(id , "Customer");
-        }
-        customerFound.setCustomer(customer);
-        return customerRepository.save(customerFound);
+        return customerRepository.findById(id)
+                .map(customerMap -> {
+                    customerMap.setCustomer(customer);
+                    return customerRepository.save(customer);
+                })
+                .orElseGet(() -> {
+                    customer.setId(id);
+                    return customerRepository.save(customer);
+                });
     }
 
     public void deleteCustomer(Long id){
