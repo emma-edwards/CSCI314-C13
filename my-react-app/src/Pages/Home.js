@@ -177,6 +177,13 @@ export default function Home() {
                 </Container>
 
             </main>
+
+            <Container>
+                <RouterLink to="/AdminSignIn">
+                    <button>Admin sign in</button>
+                </RouterLink>
+            </Container>
+
             {/* Footer */}
             <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
                 <Typography variant="h6" align="center" gutterBottom>

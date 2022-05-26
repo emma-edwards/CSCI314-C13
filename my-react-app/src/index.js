@@ -29,6 +29,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import PSignIn from './Pages/PSignIn';
 import PageNotFound from './Pages/PageNotFound';
 import CalloutHistory from './Pages/CalloutHistory';
+import AdminHome from './Pages/AdminHome';
+import AdminSignIn from './Pages/AdminSignIn';
 import Layout from './Pages/Layout';
 
 import Payment from './Pages/Payment';
@@ -45,6 +47,8 @@ export default function App() {
         <Route path="ProfessionalReg" element={<ProfessionalReg />} />
         <Route path="PSignIn" element={<PSignIn />} />
         <Route path="*" element={<PageNotFound />} />
+        <Route path="AdminSignIn" element={<AdminSignIn />} />
+        <Route path="AdminHome" element={<AdminHome />} />
 
 
         <Route element={<Nav />}>
