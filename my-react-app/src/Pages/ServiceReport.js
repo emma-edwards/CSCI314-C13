@@ -21,6 +21,13 @@ export default function ServiceReport()
     const [request, setRequest] = useState([{}])
     const [professional, setProfessional] = useState([{}])
     const [vehicle, setVehicle] = useState([{}])
+    const [price, setPrice] = useState(0)
+
+    useEffect(() => {
+        let price = ((Math.random() * (250 - 20 + 1)) + 20).toFixed(2);
+        setPrice(price);
+        console.log(price);
+    }, []);
 
     useEffect(() => {
         fetch(`http://localhost:8080/customer/getCustomer/${customerId}`) //Pulls specific customer from the server
@@ -64,12 +71,12 @@ export default function ServiceReport()
                 return response.json()
             })
             .then(json=>{
-                let request = json;
-                setRequest(request);
-                console.log(request);
+                let professional = json;
+                setProfessional(professional);
+                console.log(professional);
             })
     }, []);
-*/
+ */
     useEffect(() => {
         fetch(`http://localhost:8080/vehicle/getVehicle/${vehicleId}`) //Pulls specific vehicle from the server
             .then(response => {
@@ -161,8 +168,11 @@ export default function ServiceReport()
                         <Grid item xs={12}>
                             Services Rendered:
                         </Grid>
-                        <Grid item xs={12}>
-                            Pricing:
+                        <Grid item xs={6}>
+                            Pricing: You're a member! We've got this one
+                        </Grid>
+                        <Grid item xs={6}>
+                            Additional Parts: {price}
                         </Grid>
                     </Grid>
                 </Container>
