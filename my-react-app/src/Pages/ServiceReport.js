@@ -23,6 +23,11 @@ export default function ServiceReport()
     const [vehicle, setVehicle] = useState([{}])
     const [price, setPrice] = useState(0)
 
+    const handleClick = () =>
+    {
+        window.location.href = "/MemberHome";
+    }
+
     useEffect(() => {
         let price = ((Math.random() * (250 - 20 + 1)) + 20).toFixed(2);
         setPrice(price);
@@ -160,13 +165,13 @@ export default function ServiceReport()
                     </Typography>
                     <Grid container spacing={3}>
                         <Grid item xs={12} sm={6}>
-                            Professional Name:
+                            Professional Name: Pro Test
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            Professional Email:
+                            Professional Email: pro@gmail.com
                         </Grid>
                         <Grid item xs={12}>
-                            Services Rendered:
+                            Services Rendered: Replaced tyre
                         </Grid>
                         <Grid item xs={6}>
                             Pricing: You're a member! We've got this one
@@ -176,6 +181,18 @@ export default function ServiceReport()
                         </Grid>
                     </Grid>
                 </Container>
+                <Button
+                    fullWidth
+                    variant="contained"
+                    sx={{
+                        mb: 5,
+                        width: '30%',
+                        marginLeft: '35%'
+                }}
+                    onClick={handleClick}
+                    >
+                    Return Home
+                </Button>
             </ThemeProvider>
         </React.Fragment>
     )
