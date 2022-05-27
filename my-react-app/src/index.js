@@ -36,6 +36,8 @@ import Layout from './Pages/Layout';
 import Payment from './Pages/Payment';
 import ReviewNRating from './Pages/ReviewNRating';
 
+import Test from './Pages/Test';
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -66,6 +68,10 @@ export default function App() {
           <Route path="MemberHome" element={<MemberHome />} />
           <Route path="ReviewNRating" element={<ReviewNRating/>} />
           <Route path="CalloutHistory" element={<CalloutHistory/>} />
+
+          /* to be deleted*/
+          <Route path="Test" element={<Test/>} />
+
         </Route>
 
         <Route element={<PNav />}>

@@ -94,6 +94,11 @@ export default function Home() {
                                     Professional Sign In
                                 </Button>
                             </RouterLink>
+                            <RouterLink to="/Test">
+                                <Button variant="contained">
+                                    Test data
+                                </Button>
+                            </RouterLink>
 
                         </Stack>
 
