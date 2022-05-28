@@ -1,6 +1,5 @@
 package CSIT314.Project.Controller;
 
-import CSIT314.Project.Model.Customer;
 import CSIT314.Project.Model.Request;
 import CSIT314.Project.Service.RequestServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

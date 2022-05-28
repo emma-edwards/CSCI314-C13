@@ -1,15 +1,23 @@
 package CSIT314.Project.Controller;
 
 import CSIT314.Project.Model.Professional;
-import CSIT314.Project.Service.ProfessionalService;
 import CSIT314.Project.Service.ProfessionalServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/professional")
 @CrossOrigin
 public class ProfessionalController {
+    @Autowired
     private ProfessionalServiceImpl professionalService;
+
+    @GetMapping("/getAll")
+    public List<Professional> getAllProfessionals(){
+        return professionalService.getAllProfessionals();
+    }
 
     @GetMapping("/getProfessional/{id}")
     Professional getProfessionalById(@PathVariable Long id) {

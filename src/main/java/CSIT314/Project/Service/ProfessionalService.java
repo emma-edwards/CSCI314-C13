@@ -6,10 +6,16 @@ import CSIT314.Project.Repository.ProfessionalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProfessionalService implements ProfessionalServiceImpl {
     @Autowired
     private ProfessionalRepository professionalRepository;
+
+    public List<Professional> getAllProfessionals(){
+        return professionalRepository.findAll();
+    }
 
     public Professional getProfessionalById(Long id) {
         return professionalRepository.findById(id).orElseThrow(() -> new CustomException(id, "Professional"));
