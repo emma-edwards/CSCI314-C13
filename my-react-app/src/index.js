@@ -52,6 +52,8 @@ export default function App() {
         <Route path="AdminSignIn" element={<AdminSignIn />} />
         <Route path="AdminHome" element={<AdminHome />} />
 
+        /* to be deleted*/
+        <Route path="Test" element={<Test/>} />
 
         <Route element={<Nav />}>
           <Route index element={<MemberHome />} />
@@ -69,8 +71,7 @@ export default function App() {
           <Route path="ReviewNRating" element={<ReviewNRating/>} />
           <Route path="CalloutHistory" element={<CalloutHistory/>} />
 
-          /* to be deleted*/
-          <Route path="Test" element={<Test/>} />
+
 
         </Route>
 
