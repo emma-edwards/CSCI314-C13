@@ -32,7 +32,7 @@ function Copyright() {
         <Typography variant="body2" color="text.secondary" align="center">
             {'Copyright © '}
             <Link color="inherit" href="https://mui.com/">
-                Your Website
+                Roadside Assistance Service
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -199,7 +199,7 @@ export default function Home() {
                     color="text.secondary"
                     component="p"
                 >
-                    Something here to give the footer a purpose!
+                    CSIT314 Group C-13 Final Deliverable
                 </Typography>
                 <Copyright />
             </Box>
