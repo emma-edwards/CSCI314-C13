@@ -1,5 +1,6 @@
 package CSIT314.Project.Controller;
 
+import CSIT314.Project.Model.Customer;
 import CSIT314.Project.Model.Professional;
 import CSIT314.Project.Service.ProfessionalServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,16 @@ public class ProfessionalController {
     @GetMapping("/getProfessional/{id}")
     Professional getProfessionalById(@PathVariable Long id) {
         return professionalService.getProfessionalById(id);
+    }
+
+    @GetMapping("/findProfessionalEmail/{email}")
+    Professional getProfessionalFindEmail(@PathVariable String email) {
+        return professionalService.getProfessionalFindEmail(email);
+    }
+
+    @GetMapping("/findProfessionalPassword/{password}")
+    Professional getProfessionalFindPassword(@PathVariable String password) {
+        return professionalService.getProfessionalFindPassword(password);
     }
 
     @PostMapping("/addProfessional")

@@ -1,6 +1,7 @@
 package CSIT314.Project.Service;
 
 import CSIT314.Project.Exceptions.CustomException;
+import CSIT314.Project.Exceptions.CustomException2;
 import CSIT314.Project.Model.Professional;
 import CSIT314.Project.Repository.ProfessionalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,22 @@ public class ProfessionalService implements ProfessionalServiceImpl {
 
     public Professional getProfessionalById(Long id) {
         return professionalRepository.findById(id).orElseThrow(() -> new CustomException(id, "Professional"));
+    }
+
+    public Professional getProfessionalFindEmail(String email){
+        if(professionalRepository.findByEmail(email).isPresent()) {
+            return professionalRepository.findByEmail(email).orElseThrow(() -> new CustomException2("Cannot find email"));
+        }else{
+            throw new CustomException2("Incorrect Email or Password");
+        }
+    }
+
+    public Professional getProfessionalFindPassword(String password){
+        if(professionalRepository.findByPassword(password).isPresent()) {
+            return professionalRepository.findByPassword(password).orElseThrow(() -> new CustomException2("Cannot find password"));
+        }else{
+            throw new CustomException2("Incorrect Email or Password");
+        }
     }
 
     public Professional createProfessional(Professional newProfessional){

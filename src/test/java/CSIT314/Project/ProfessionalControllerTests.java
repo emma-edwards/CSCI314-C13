@@ -27,7 +27,7 @@ public class ProfessionalControllerTests{
 
     @Test
     void testProfessionalSaved(){
-        Professional professional = new Professional(1L, "Angus", "Dumaresq", "20/09/2001", "angus@gmail.com", 041234567, 1);
+        Professional professional = new Professional(1L, "Angus", "Dumaresq", "20/09/2001", "angus@gmail.com", 041234567, 1, "password");
 
         given(professionalRepository.save(professional)).willReturn(professional);
 
@@ -38,7 +38,7 @@ public class ProfessionalControllerTests{
 
     @Test
     void testProfessionalGet(){
-        Professional professional = new Professional(1L, "Angus", "Dumaresq", "20/09/2001", "angus@gmail.com", 041234567, 1);
+        Professional professional = new Professional(1L, "Angus", "Dumaresq", "20/09/2001", "angus@gmail.com", 041234567, 1, "password");
 
         given(professionalRepository.findById(1L)).willReturn(Optional.of(professional));
 
@@ -49,7 +49,7 @@ public class ProfessionalControllerTests{
 
     @Test
     void testPolicyUpdate(){
-        Professional professional = new Professional(1L, "Angus", "Dumaresq", "20/09/2001", "angus@gmail.com", 041234567, 1);
+        Professional professional = new Professional(1L, "Angus", "Dumaresq", "20/09/2001", "angus@gmail.com", 041234567, 1, "password");
 
         given(professionalRepository.save(professional)).willReturn(professional);
 
@@ -62,7 +62,7 @@ public class ProfessionalControllerTests{
 
     @Test
     void testPolicyDelete(){
-        Professional professional = new Professional(1L, "Angus", "Dumaresq", "20/09/2001", "angus@gmail.com", 041234567, 1);
+        Professional professional = new Professional(1L, "Angus", "Dumaresq", "20/09/2001", "angus@gmail.com", 041234567, 1, "password");
 
         professionalService.deleteProfessional(1L);
 

@@ -16,10 +16,11 @@ public class Professional {
     private String email;
     private int phone;
     private int yearsWorked;
+    private String password;
 
     public Professional(){}
 
-    public Professional(Long id, String firstName, String lastName, String DOB, String email, int phone, int yearsWorked) {
+    public Professional(Long id, String firstName, String lastName, String DOB, String email, int phone, int yearsWorked, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,6 +28,7 @@ public class Professional {
         this.email = email;
         this.phone = phone;
         this.yearsWorked = yearsWorked;
+        this.password = password;
     }
 
     public Long getId() {
@@ -85,6 +87,14 @@ public class Professional {
         this.yearsWorked = yearsWorked;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public void setProfessional(Professional professional){
         setFirstName(professional.firstName);
         setLastName(professional.lastName);
@@ -92,5 +102,6 @@ public class Professional {
         setEmail(professional.email);
         setPhone(professional.phone);
         setYearsWorked(professional.yearsWorked);
+        setPassword(professional.password);
     }
 }
