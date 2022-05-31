@@ -41,50 +41,51 @@ export default function PSignIn() {
     const checkTextInput = (e) => {
         if (!email.trim()) {
             alert('Please Enter Email');
-            window.location.href = '/Signin'
+            window.location.href = '/PSignin'
         }else if (!password.trim()) {
             alert('Please Enter Password');
-            window.location.href = '/SignIn'
+            window.location.href = '/PSignIn'
         }else{
             handleClick(e);
         }
     }
 
-    const handleClick=(e)=>{
-        e.preventDefault()
-        const signIn={email, password}
-        console.log(signIn)
-        fetch(`http://localhost:8080/customer/findCustomerEmail/${email}`)
-            .then(response => {
-                if (!response.ok){
-                    alert('Incorrect Email or Password');
-                    throw response
-                }
-                return response.json()
-            })
-            .then(json=>{
-                console.log(json)
-                handleClick2(e)
-            })
-    }
-
-    const handleClick2=(e)=>{
-        e.preventDefault()
-        const signIn={email, password}
-        console.log(signIn)
-        fetch(`http://localhost:8080/customer/findCustomerPassword/${password}`)
-            .then(response => {
-                if (!response.ok){
-                    alert('Incorrect Email or Password');
-                    throw response
-                }
-                return response.json()
-            })
-            .then(json=>{
-                console.log(json)
-                window.location.href = '/MemberHome'
-            })
-    }
+    const handleClick = (e) => {
+        e.preventDefault();
+        const signIn = { email, password };
+        console.log(signIn);
+        fetch(`http://localhost:8080/professional/findProfessionalEmail/${email}`)
+          .then((response) => {
+            if (!response.ok) {
+              alert('Incorrect Email or Password');
+              throw response;
+            }
+            return response.json();
+          })
+          .then((json) => {
+            console.log(json);
+            handleClick2(e);
+          });
+      };
+    
+      const handleClick2 = (e) => {
+        e.preventDefault();
+        const signIn = { email, password };
+        console.log(signIn);
+        fetch(`http://localhost:8080/professional/findProfessionalPassword/${password}`)
+          .then((response) => {
+            if (!response.ok) {
+              alert('Incorrect Email or Password');
+              throw response;
+            }
+            return response.json();
+          })
+          .then((json) => {
+            console.log(json);
+            localStorage.setItem('loggedin', true);
+            window.location.href = '/professionalHome';
+          });
+      };
 
     return (
         <ThemeProvider theme={theme}>

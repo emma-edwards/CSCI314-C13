@@ -71,7 +71,7 @@ export default function ProfessionalReg() {
 
     const handleClick=(e)=>{
         e.preventDefault()
-        const signUp={firstName, lastName, dob, email, phone, yearsWorked/*, password*/}
+        const signUp={firstName, lastName, dob, email, phone, yearsWorked, password}
         console.log(signUp)
         fetch("http://localhost:8080/professional/addProfessional",{
             method:"POST",
