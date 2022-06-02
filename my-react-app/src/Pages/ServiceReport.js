@@ -12,7 +12,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const reportTheme = createTheme();
 const customerId = 1;
 const requestId = 1;
-const professionalId = 2;
+const professionalId = 1;
 const vehicleId= 1;
 
 export default function ServiceReport()
@@ -134,7 +134,7 @@ export default function ServiceReport()
                             Customer Phone: {customer.phone}
                         </Grid>
                         <Grid item xs={12}>
-                            Address: {request.streetName}
+                            Address: {request.sNumber} {request.streetName} {request.suburb}
                         </Grid>
                         <Grid item xs={12} sm={6} //This cell displays membership status at time of callout
                         >
@@ -165,13 +165,10 @@ export default function ServiceReport()
                     </Typography>
                     <Grid container spacing={3}>
                         <Grid item xs={12} sm={6}>
-                            Professional Name: Pro Test {professional.name}
+                            Professional Name: {professional.firstName} {professional.lastName}
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            Professional Email: pro@gmail.com
-                        </Grid>
-                        <Grid item xs={12}>
-                            Services Rendered: Replaced tyre
+                            Professional Email: {professional.email}
                         </Grid>
                         <Grid item xs={6}>
                             Pricing: You're a member! We've got this one
