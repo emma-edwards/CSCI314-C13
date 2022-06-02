@@ -21,11 +21,12 @@ public class Customer {
     private String email;
     private int phone;
     private String password;
+    private boolean member;
 
     public Customer() {
     }
 
-    public Customer(Long id, String firstName, String lastName, String DOB, String email, int phone, String password) {
+    public Customer(Long id, String firstName, String lastName, String DOB, String email, int phone, String password, boolean member) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -33,6 +34,7 @@ public class Customer {
         this.email = email;
         this.phone = phone;
         this.password = password;
+        this.member = member;
     }
 
     public Long getId() {
@@ -87,6 +89,14 @@ public class Customer {
 
     public void setPassword(String password){this.password = password;}
 
+    public boolean isMember() {
+        return member;
+    }
+
+    public void setMember(boolean member) {
+        this.member = member;
+    }
+
     public void setCustomer (Customer customer) {
         if (customer.firstName != null) {
             setFirstName(customer.firstName);
@@ -104,5 +114,7 @@ public class Customer {
         if (customer.password != null) {
             setPassword(customer.password);
         }
+
+        setMember(customer.member);
     }
 }

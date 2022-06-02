@@ -30,7 +30,7 @@ public class CustomerControllerTests{
 
     @Test
     void testCustomerSaved(){
-        Customer customer = new Customer(1L, "Angus", "Dumaresq", "20/09/2001", "angusdq@gmail.com", 041234567, "password");
+        Customer customer = new Customer(1L, "Angus", "Dumaresq", "20/09/2001", "angusdq@gmail.com", 041234567, "password", true);
 
         given(customerRepository.save(customer)).willReturn(customer);
 
@@ -42,8 +42,8 @@ public class CustomerControllerTests{
     @Test
     void testCustomerAllGet(){
         List<Customer> expectedCustomers = new ArrayList<>();
-        expectedCustomers.add(new Customer(1L, "Angus", "Dumaresq", "20/09/2001", "angusdq@gmail.com", 041234567, "password"));
-        expectedCustomers.add(new Customer(2L, "Angus", "Dumaresq", "20/09/2001", "angusdq@gmail.com", 041234567, "password"));
+        Customer customer = new Customer(1L, "Angus", "Dumaresq", "20/09/2001", "angusdq@gmail.com", 041234567, "password", true);
+        Customer customer2 = new Customer(2L, "Angus", "Dumaresq", "20/09/2001", "angusdq@gmail.com", 041234567, "password", true);
 
         given(customerRepository.findAll()).willReturn(expectedCustomers);
 
@@ -54,7 +54,7 @@ public class CustomerControllerTests{
 
     @Test
     void testCustomerUpdate(){
-        Customer customer = new Customer(1L, "Angus", "Dumaresq", "20/09/2001", "angusdq@gmail.com", 041234567, "password");
+        Customer customer = new Customer(1L, "Angus", "Dumaresq", "20/09/2001", "angusdq@gmail.com", 041234567, "password", true);
 
         given(customerRepository.save(customer)).willReturn(customer);
 
@@ -67,7 +67,7 @@ public class CustomerControllerTests{
 
     @Test
     void testCustomerDelete(){
-        Customer customer = new Customer(1L, "Angus", "Dumaresq", "20/09/2001", "angusdq@gmail.com", 041234567, "password");
+        Customer customer = new Customer(1L, "Angus", "Dumaresq", "20/09/2001", "angusdq@gmail.com", 041234567, "password", true);
 
         customerService.deleteCustomer(1L);
 
