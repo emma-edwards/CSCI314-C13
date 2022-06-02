@@ -12,7 +12,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const reportTheme = createTheme();
 const customerId = 1;
 const requestId = 1;
-const professionalId = 1;
+const professionalId = 2;
 const vehicleId= 1;
 
 export default function ServiceReport()
@@ -65,7 +65,7 @@ export default function ServiceReport()
                 console.log(request);
             })
     }, []);
-/*
+
     useEffect(() => {
         fetch(`http://localhost:8080/professional/getProfessional/${professionalId}`) //Pulls specific professional from the server
             .then(response => {
@@ -81,7 +81,7 @@ export default function ServiceReport()
                 console.log(professional);
             })
     }, []);
- */
+
     useEffect(() => {
         fetch(`http://localhost:8080/vehicle/getVehicle/${vehicleId}`) //Pulls specific vehicle from the server
             .then(response => {
@@ -165,7 +165,7 @@ export default function ServiceReport()
                     </Typography>
                     <Grid container spacing={3}>
                         <Grid item xs={12} sm={6}>
-                            Professional Name: Pro Test
+                            Professional Name: Pro Test {professional.name}
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             Professional Email: pro@gmail.com

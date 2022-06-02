@@ -52,6 +52,15 @@ const MemberHome = () => {
                                         >
                                             Submit callout</Button>
                                     </RouterLink>
+                                    <RouterLink to="/ServiceReport">
+                                        <Button
+                                            type="submit"
+                                            fullWidth
+                                            variant="contained"
+                                            sx={{ mt: 3, mb: 2 }}
+                                        >
+                                            Service Report</Button>
+                                    </RouterLink>
                                 </CardActions>
                             </Card>
                         </item>
