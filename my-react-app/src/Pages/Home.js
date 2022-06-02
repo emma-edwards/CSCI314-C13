@@ -18,7 +18,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import motorist from '../images/motorist.jpg';
 import mechanic from '../images/mechanic.jpg';
-import { Outlet, Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 
 /*
@@ -39,8 +39,6 @@ function Copyright() {
         </Typography>
     );
 }
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const theme = createTheme();
 

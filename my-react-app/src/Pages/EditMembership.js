@@ -25,6 +25,7 @@ export default function EditMembership() {
 
     const handleClose = () => {
         setOpen(false);
+        window.location.href = '/MemberHome';
     };
 
     const handleClick=(e)=>{

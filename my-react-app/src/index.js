@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 //import App from './App';
 //import Layout from './Pages/Layout';
@@ -11,7 +11,6 @@ import Subscriptions from './Pages/Subscriptions';
 import Pricing from './Pages/Pricing';
 import EditMembership from './Pages/EditMembership';
 import EditProfile from './Pages/EditProfile';
-import reportWebVitals from './reportWebVitals';
 import ProfessionalReg from './Pages/ProfessionalReg';
 import VehicleReg from './Pages/VehicleReg';
 import SubmitClaim from './Pages/SubmitClaim';
@@ -31,7 +30,6 @@ import PageNotFound from './Pages/PageNotFound';
 import CalloutHistory from './Pages/CalloutHistory';
 import AdminHome from './Pages/AdminHome';
 import AdminSignIn from './Pages/AdminSignIn';
-import Layout from './Pages/Layout';
 
 import Payment from './Pages/Payment';
 import ReviewNRating from './Pages/ReviewNRating';
@@ -52,7 +50,7 @@ export default function App() {
         <Route path="AdminSignIn" element={<AdminSignIn />} />
         <Route path="AdminHome" element={<AdminHome />} />
 
-        /* to be deleted*/
+
         <Route path="Test" element={<Test/>} />
 
         <Route element={<Nav />}>

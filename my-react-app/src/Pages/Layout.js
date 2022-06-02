@@ -16,10 +16,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { Outlet } from 'react-router-dom';
-import { Icon } from '@mui/material';
 import { LoginOutlined, PersonAddAltOutlined } from '@mui/icons-material';
 
 const drawerWidth = 240;
@@ -147,7 +144,7 @@ export default function Layout() {
                     justifyContent: 'center',
                   }}
                 >
-                  {index == 0 ? <LoginOutlined /> : <PersonAddAltOutlined />}
+                  {index === 0 ? <LoginOutlined /> : <PersonAddAltOutlined />}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -157,9 +154,9 @@ export default function Layout() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-
         <Outlet />
       </Box>
     </Box>
   );
 }
+

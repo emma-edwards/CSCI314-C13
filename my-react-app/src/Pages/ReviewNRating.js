@@ -1,12 +1,9 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
 import Rating from '@mui/material/Rating';
 import TextareaAutosize from '@mui/base/TextareaAutosize';
-import TextField from "@mui/material/TextField";
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 
 // Page is modified using Material UI library
 

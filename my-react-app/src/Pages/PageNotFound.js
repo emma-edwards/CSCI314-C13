@@ -1,6 +1,4 @@
-import { Container, Alert, Card, CardHeader, CardContent, Button } from '@mui/material';
-
-import { Link } from 'react-router-dom';
+import { Container, Alert, Card, CardContent, Button } from '@mui/material';
 
 const PageNotFound = () => {
   return (

@@ -16,16 +16,15 @@ import {
   TextField,
   Alert,
 } from '@mui/material';
-import { Padding } from '@mui/icons-material';
 import { DesktopDatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const steps = ['Payment Method', 'Details', 'Confirmation'];
 
 function Payment() {
   const [activeStep, setActiveStep] = React.useState(0);
-  const [skipped, setSkipped] = React.useState(new Set());
+  const [skipped] = React.useState(new Set());
   const [paymentMethod, setPaymentMethod] = React.useState('credit');
   const [cardNumber, setCardNumber] = React.useState('');
   const [cvv, setCvv] = React.useState('');
@@ -43,15 +42,11 @@ function Payment() {
   };
 
   const handleNext = () => {
-    if (activeStep == 2) {
+    if (activeStep === 2) {
       window.location.href = '/MemberHome';
     } else {
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   const handleSkip = () => {
@@ -61,13 +56,10 @@ function Payment() {
   const handleReset = () => {
     setActiveStep(0);
   };
-  const [loading, setLoading] = React.useState(true);
-  function handleClick() {
-    setLoading(true);
-  }
+
 
   const getStepContent = () => {
-    if (activeStep == 0) {
+    if (activeStep === 0) {
       return (
         <FormControl style={{ padding: 20 }}>
           <FormLabel id="demo-radio-buttons-group-label">Select Payment Method</FormLabel>
@@ -87,7 +79,7 @@ function Payment() {
       );
     }
 
-    if (activeStep == 1) {
+    if (activeStep === 1) {
       return (
         <Box
           style={{ padding: 20 }}
@@ -99,7 +91,7 @@ function Payment() {
           autoComplete="off"
         >
           <TextField
-            error={name.length == 0}
+            error={name.length === 0}
             label="Card Holder Name"
             value={name}
             onChange={(value) => setName(value.target.value)}
@@ -107,7 +99,7 @@ function Payment() {
           />
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DesktopDatePicker
-              error={expiry.length == 0}
+              error={expiry.length === 0}
               onChange={(value) => setExpiry(value)}
               label="Expiry Date"
               inputFormat="yyyy/MM/dd"
@@ -117,7 +109,7 @@ function Payment() {
           </LocalizationProvider>
           <TextField
             value={cardNumber}
-            error={cardNumber.length == 0}
+            error={cardNumber.length === 0}
             onChange={(value) => setCardNumber(value.target.value)}
             fullWidth={true}
             label="Card Number"
@@ -127,7 +119,7 @@ function Payment() {
 
           <TextField
             value={cvv}
-            error={cvv.length == 0}
+            error={cvv.length === 0}
             onChange={(value) => setCvv(value.target.value)}
             label="CVV"
             type="number"
@@ -137,7 +129,7 @@ function Payment() {
       );
     }
 
-    if (activeStep == 2) {
+    if (activeStep === 2) {
       return (
         <Box
           style={{ padding: 20 }}
