@@ -11,14 +11,12 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import CalloutMap from '../Components/Map';
 
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import {Marker} from "google-maps-react";
 
 
 const data = [
@@ -48,7 +46,7 @@ const data = [
 
 
 
-export default function AvJobs(){
+export default function AvJobs() {
 
 
     // const [open, setOpen] = React.useState(false);
@@ -89,10 +87,6 @@ export default function AvJobs(){
             })
     }
 
-    //const root = ReactDOM.createRoot(document.getElementById('root'));
-
-    //root.render(element);
-
     return (
         <>
             <Container>
@@ -102,17 +96,7 @@ export default function AvJobs(){
                     <Grid item xs={8} sm={4}>
                         <item>
                             <Box>
-                                <CalloutMap
-                                    location={{latitude: -34.414, longitude: 150.901}}
-                                    style={{
-                                        width: '35%',
-                                        height: '350px',
-                                        margin: '0',
-                                        padding: '10px',
-                                    }}
-                                    initialCenter={{lat: -34.405, lng: 150.878}}
-                                    zoom={13}
-                                />
+                                <img src={mapImg} alt="map" width='100%'/>
                             </Box>
 
                         </item>
@@ -151,7 +135,7 @@ export default function AvJobs(){
                     type="submit"
                     fullWidth
                     variant="contained"
-                    sx={{ mt: 3, mb: 2, marginTop: 25}}
+                    sx={{ mt: 3, mb: 2 }}
                     onClick={handleClick}>
                     Refresh Jobs
                 </Button>
@@ -181,7 +165,6 @@ export default function AvJobs(){
             </Container>
 
         </>
-
     );
 
 

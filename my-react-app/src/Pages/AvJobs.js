@@ -11,12 +11,14 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import CalloutMap from '../Components/Map';
 
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import {Marker} from "google-maps-react";
 
 
 const data = [
@@ -46,7 +48,7 @@ const data = [
 
 
 
-export default function AvJobs() {
+export default function AvJobs(){
 
 
     // const [open, setOpen] = React.useState(false);
@@ -73,19 +75,23 @@ export default function AvJobs() {
     }
 
     const handleClick=(e)=>{
-        fetch(`http://localhost:8080/request/getAll`) //Pulls all requests from the server 
-        .then(response => {
-            if (!response.ok){ //If the request fails, e.g. server is not running 
-                alert('There are no requests');
-                throw response 
-            }
+        fetch(`http://localhost:8080/request/getAll`) //Pulls all requests from the server
+            .then(response => {
+                if (!response.ok){ //If the request fails, e.g. server is not running
+                    alert('There are no requests');
+                    throw response
+                }
                 return response.json() //Returns all the requests
-                //You will need to work out hoe to get each specific variable from it 
-        })
-        .then(json=>{
-            console.log(json)//Prints the requests in the console log 
-        })
+                //You will need to work out hoe to get each specific variable from it
+            })
+            .then(json=>{
+                console.log(json)//Prints the requests in the console log
+            })
     }
+
+    //const root = ReactDOM.createRoot(document.getElementById('root'));
+
+    //root.render(element);
 
     return (
         <>
@@ -96,7 +102,17 @@ export default function AvJobs() {
                     <Grid item xs={8} sm={4}>
                         <item>
                             <Box>
-                                <img src={mapImg} alt="map" width='100%'/>
+                                <CalloutMap
+                                    location={{latitude: -34.414, longitude: 150.901}}
+                                    style={{
+                                        width: '35%',
+                                        height: '350px',
+                                        margin: '0',
+                                        padding: '10px',
+                                    }}
+                                    initialCenter={{lat: -34.405, lng: 150.878}}
+                                    zoom={13}
+                                />
                             </Box>
 
                         </item>
@@ -135,7 +151,7 @@ export default function AvJobs() {
                     type="submit"
                     fullWidth
                     variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
+                    sx={{ mt: 3, mb: 2, marginTop: 25}}
                     onClick={handleClick}>
                     Refresh Jobs
                 </Button>
@@ -165,6 +181,7 @@ export default function AvJobs() {
             </Container>
 
         </>
+
     );
 
 
