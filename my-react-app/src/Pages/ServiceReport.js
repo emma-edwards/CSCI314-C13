@@ -21,7 +21,7 @@ export default function ServiceReport()
     const [request, setRequest] = useState([{}])
     const [professional, setProfessional] = useState([{}])
     const [vehicle, setVehicle] = useState([{}])
-    const [price, setPrice] = useState(0)
+    const [price, setPrice] = useState('')
 
     const handleClick = () =>
     {
@@ -32,22 +32,6 @@ export default function ServiceReport()
         let price = ((Math.random() * (250 - 20 + 1)) + 20).toFixed(2);
         setPrice(price);
         console.log(price);
-    }, []);
-
-    useEffect(() => {
-        fetch(`http://localhost:8080/customer/getCustomer/${customerId}`) //Pulls specific customer from the server
-            .then(response => {
-                if (!response.ok) { //If the pull fails
-                    alert('There are no customers');
-                    throw response
-                }
-                return response.json()
-            })
-            .then(json=>{
-                let customer = json;
-                setCustomer(customer);
-                console.log(customer);
-            })
     }, []);
 
     useEffect(() => {
@@ -63,6 +47,34 @@ export default function ServiceReport()
                 let request = json;
                 setRequest(request);
                 console.log(request);
+            })
+    }, []);
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/customer/getCustomer/${customerId}`) //Pulls specific customer from the server
+            .then(response => {
+                if (!response.ok) { //If the pull fails
+                    alert('There are no customers');
+                    throw response
+                }
+                return response.json()
+            })
+            .then(json=>{
+                let customer = json;
+                setCustomer(customer);
+                /*
+                if (customer.member == true)
+                {
+                    let price = "You're a member, this ones on us!";
+                    setPrice(price);
+                }
+                else
+                {
+                    let price = request.total;
+                    setPrice(price);
+                }
+                */
+                console.log(customer);
             })
     }, []);
 
@@ -171,10 +183,7 @@ export default function ServiceReport()
                             Professional Email: {professional.email}
                         </Grid>
                         <Grid item xs={6}>
-                            Pricing: You're a member! We've got this one
-                        </Grid>
-                        <Grid item xs={6}>
-                            Additional Parts: {price}
+                            Pricing: {price}
                         </Grid>
                     </Grid>
                 </Container>
