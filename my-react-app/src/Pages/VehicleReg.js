@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
     */
 export default function VehicleReg() {
     const[plate,setPlate]=useState('')
-    const[vehiceMake,setVehicleMake]=useState('')
+    const[vehicleMake,setVehicleMake]=useState('')
     const[price,setPrice]=useState('')
     const[insuranceProvider,setInsuranceProvider]=useState('')
 
@@ -18,7 +18,7 @@ export default function VehicleReg() {
         if (!plate.trim()) {
             alert('Please Enter Plate Number'); 
             window.location.href = '/VehicleReg'
-        }else if (!vehiceMake.trim()) {
+        }else if (!vehicleMake.trim()) {
             alert('Please Enter Vehicle Make');
             window.location.href = '/VehicleReg'
         }else if (!price.trim()) {
@@ -34,7 +34,7 @@ export default function VehicleReg() {
 
     const handleClick=(e)=>{
         e.preventDefault()
-        const vehicle={plate, vehiceMake, price, insuranceProvider}
+        const vehicle={plate, vehicleMake, price, insuranceProvider}
         console.log(vehicle)
         fetch("http://localhost:8080/vehicle/addVehicle",{
             method:"POST",
@@ -74,7 +74,7 @@ export default function VehicleReg() {
                         label="Vehicle Make"
                         fullWidth
                         variant="standard"
-                        value={vehiceMake}
+                        value={vehicleMake}
                         onChange={(e)=>setVehicleMake(e.target.value)}
                     />
                 </Grid>
