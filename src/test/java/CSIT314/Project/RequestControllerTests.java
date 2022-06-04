@@ -27,7 +27,7 @@ public class RequestControllerTests{
 
     @Test
     void testRequestSaved(){
-        Request request = new Request(1L, "10", "John", "Wollongong", "Car battery");
+        Request request = new Request(1L, "10", "John", "Wollongong", "Car battery", "1000");
 
         given(requestRepository.save(request)).willReturn(request);
 
@@ -38,7 +38,7 @@ public class RequestControllerTests{
 
     @Test
     void testRequestGet(){
-        Request request = new Request(1L, "10", "John", "Wollongong", "Car battery");
+        Request request = new Request(1L, "10", "John", "Wollongong", "Car battery", "1000");
 
         given(requestRepository.findById(1L)).willReturn(Optional.of(request));
 
@@ -49,7 +49,7 @@ public class RequestControllerTests{
 
     @Test
     void testRequestUpdate(){
-        Request request = new Request(1L, "10", "John", "Wollongong", "Car battery");
+        Request request = new Request(1L, "10", "John", "Wollongong", "Car battery", "1000");
 
         given(requestRepository.save(request)).willReturn(request);
 
@@ -62,7 +62,7 @@ public class RequestControllerTests{
 
     @Test
     void testRequestDelete(){
-        Request request = new Request(1L, "10", "John", "Wollongong", "Car battery");
+        Request request = new Request(1L, "10", "John", "Wollongong", "Car battery", "1000");
 
         requestService.deleteRequest(1L);
 
