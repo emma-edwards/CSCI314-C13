@@ -25,7 +25,7 @@ DEV Community Tutorial
 */}
 
 {/*const geocode = geocoder({
-    key: 'AIzaSyADWRrnjbHsVNlFsQcKBfzydPxDSMRyUX4'
+    key: 'AIzaSyBH6wsbWvD11Koh2pF0B-ZJBQ9JqPMzCxo'
 });
 */}
 
@@ -130,5 +130,5 @@ export class CalloutMap extends React.Component{
 
 export default GoogleApiWrapper(
     {
-        apiKey: 'AIzaSyADWRrnjbHsVNlFsQcKBfzydPxDSMRyUX4'
+        apiKey: 'AIzaSyBH6wsbWvD11Koh2pF0B-ZJBQ9JqPMzCxo'
     })(Map);
